@@ -3,6 +3,7 @@
   import { currentLang, t } from '../../stores/languageStore';
   import ContactForm from '../../components/ContactForm.svelte';
   import { onMount } from 'svelte';
+  import { getAssetPath } from '../../utils/assetPath';
 
   let currentPath = '';
   let showContactModal = false;
@@ -88,37 +89,37 @@
     // Before images
     {
       id: 1,
-      src: '/images/restoration/before/photo_2025-07-01_07-07-40.jpg',
+      src: getAssetPath('/images/restoration/before/photo_2025-07-01_07-07-40.jpg'),
       alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
       category: 'restoration-before'
     },
     {
       id: 2,
-      src: '/images/restoration/before/2024-05-14 16-44-07.JPG',
+      src: getAssetPath('/images/restoration/before/2024-05-14 16-44-07.JPG'),
       alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
       category: 'restoration-before'
     },
     {
       id: 3,
-      src: '/images/restoration/before/2024-05-14 16-44-40.JPG',
+      src: getAssetPath('/images/restoration/before/2024-05-14 16-44-40.JPG'),
       alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
       category: 'restoration-before'
     },
     {
       id: 4,
-      src: '/images/restoration/before/2024-05-14 16-45-04.JPG',
+      src: getAssetPath('/images/restoration/before/2024-05-14 16-45-04.JPG'),
       alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
       category: 'restoration-before'
     },
     {
       id: 5,
-      src: '/images/restoration/before/2024-05-14 16-47-06.JPG',
+      src: getAssetPath('/images/restoration/before/2024-05-14 16-47-06.JPG'),
       alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
       category: 'restoration-before'
     },
     {
       id: 6,
-      src: '/images/restoration/before/photo_2025-07-21_21-14-46.jpg',
+      src: getAssetPath('/images/restoration/before/photo_2025-07-21_21-14-46.jpg'),
       alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
       category: 'restoration-before'
     },
@@ -126,37 +127,37 @@
     // After images
     {
       id: 7,
-      src: '/images/restoration/after/photo_2025-07-01_07-07-40.jpg',
+      src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40.jpg'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
       id: 8,
-      src: '/images/restoration/after/photo_2025-07-01_07-07-40 (2).jpg',
+      src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40 (2).jpg'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
       id: 9,
-      src: '/images/restoration/after/photo_2025-07-01_07-07-40 (3).jpg',
+      src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40 (3).jpg'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
       id: 10,
-      src: '/images/restoration/after/2024-05-18 13-49-31.JPG',
+      src: getAssetPath('/images/restoration/after/2024-05-18 13-49-31.JPG'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
       id: 11,
-      src: '/images/restoration/after/2024-05-18 13-50-34.JPG',
+      src: getAssetPath('/images/restoration/after/2024-05-18 13-50-34.JPG'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
       id: 12,
-      src: '/images/restoration/after/photo_2025-07-21_21-14-46.jpg',
+      src: getAssetPath('/images/restoration/after/photo_2025-07-21_21-14-46.jpg'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     }

@@ -3,6 +3,7 @@
   import { currentLang, t } from '../../stores/languageStore';
   import ContactForm from '../../components/ContactForm.svelte';
   import { onMount } from 'svelte';
+  import { getAssetPath } from '../../utils/assetPath';
 
   let currentPath = '';
   let showContactModal = false;
@@ -87,65 +88,65 @@
   const images = [
     {
       id: 1,
-      src: '/images/small forms/Беседка1.jpg',
+      src: getAssetPath('/images/small forms/Беседка1.jpg'),
       alt: $currentLang === 'en' ? 'Gazebo' : 'Беседка',
       category: 'architectural-forms'
     },
     {
       id: 2,
-      src: '/images/small forms/беседка.jpg',
+      src: getAssetPath('/images/small forms/беседка.jpg'),
       alt: $currentLang === 'en' ? 'Gazebo' : 'Беседка',
       category: 'architectural-forms'
     },
     {
       id: 3,
-      src: '/images/small forms/photo_2025-07-21_21-42-37.jpg',
+      src: getAssetPath('/images/small forms/photo_2025-07-21_21-42-37.jpg'),
       alt: $currentLang === 'en' ? 'Small Architectural Structures' : 'Малые архитектурные формы',
       category: 'architectural-forms'
     },
     {
       id: 4,
-      src: '/images/small forms/963A9631.jpg',
+      src: getAssetPath('/images/small forms/963A9631.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 5,
-      src: '/images/small forms/963A9632.jpg',
+      src: getAssetPath('/images/small forms/963A9632.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 6,
-      src: '/images/small forms/963A9633.jpg',
+      src: getAssetPath('/images/small forms/963A9633.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 7,
-      src: '/images/small forms/963A9634.jpg',
+      src: getAssetPath('/images/small forms/963A9634.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 8,
-      src: '/images/small forms/963A9642.jpg',
+      src: getAssetPath('/images/small forms/963A9642.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 9,
-      src: '/images/small forms/963A9643.jpg',
+      src: getAssetPath('/images/small forms/963A9643.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 10,
-      src: '/images/small forms/963A9644.jpg',
+      src: getAssetPath('/images/small forms/963A9644.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 11,
-      src: '/images/small forms/963A9645.jpg',
+      src: getAssetPath('/images/small forms/963A9645.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 12,
-      src: '/images/small forms/963A9646.jpg',
+      src: getAssetPath('/images/small forms/963A9646.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
   ];

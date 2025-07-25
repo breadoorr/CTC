@@ -3,6 +3,7 @@
   import { currentLang, t } from '../../stores/languageStore';
   import ContactForm from '../../components/ContactForm.svelte';
   import { onMount } from 'svelte';
+  import { getAssetPath } from '../../utils/assetPath';
 
   let currentPath = '';
   let showContactModal = false;
@@ -87,37 +88,37 @@
   const images = [
     {
       id: 1,
-      src: '/images/house/33bd0883de8e84637a5259827d798d53cedc01f1.jpeg',
+      src: getAssetPath('/images/house/33bd0883de8e84637a5259827d798d53cedc01f1.jpeg'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 2,
-      src: '/images/house/a4f1748b8d0ba362d3ddb23f529e98b6.jpg',
+      src: getAssetPath('/images/house/a4f1748b8d0ba362d3ddb23f529e98b6.jpg'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 3,
-      src: '/images/house/house(1).jpg',
+      src: getAssetPath('/images/house/house(1).jpg'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 4,
-      src: '/images/house/house(2).jpg',
+      src: getAssetPath('/images/house/house(2).jpg'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 5,
-      src: '/images/house/house(3).jpg',
+      src: getAssetPath('/images/house/house(3).jpg'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 6,
-      src: '/images/house/house(4).jpg',
+      src: getAssetPath('/images/house/house(4).jpg'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     }

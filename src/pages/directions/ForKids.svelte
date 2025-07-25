@@ -3,6 +3,7 @@
   import ContactForm from '../../components/ContactForm.svelte';
   import { currentLang, t } from '../../stores/languageStore';
   import { link, loc } from 'svelte-spa-router';
+  import { getAssetPath } from '../../utils/assetPath';
 
   const dispatch = createEventDispatcher();
 
@@ -90,22 +91,22 @@
   const images = [
     {
       id: 1,
-      src: '/images/for kids/2024-06-21 16-19-32.JPG',
+      src: getAssetPath('/images/for kids/2024-06-21 16-19-32.JPG'),
       alt: $currentLang === 'en' ? 'Furniture for Kids' : 'Мебель для детей'
     },
     {
       id: 2,
-      src: '/images/for kids/2024-06-21 16-20-24.JPG',
+      src: getAssetPath('/images/for kids/2024-06-21 16-20-24.JPG'),
       alt: $currentLang === 'en' ? 'Furniture for Kids' : 'Мебель для детей'
     },
     {
       id: 3,
-      src: '/images/for kids/2024-06-21 16-20-28.JPG',
+      src: getAssetPath('/images/for kids/2024-06-21 16-20-28.JPG'),
       alt: $currentLang === 'en' ? 'Furniture for Kids' : 'Мебель для детей'
     },
     {
       id: 4,
-      src: '/images/indoor/photo_2024-01-26_17-56-21.jpg',
+      src: getAssetPath('/images/indoor/photo_2024-01-26_17-56-21.jpg'),
       alt: $currentLang === 'en' ? 'Furniture for Kids' : 'Мебель для детей'
     },
   ];

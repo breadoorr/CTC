@@ -3,6 +3,7 @@
   import ContactForm from '../../components/ContactForm.svelte';
   import { currentLang, t } from '../../stores/languageStore';
   import { link, loc } from 'svelte-spa-router';
+  import { getAssetPath } from '../../utils/assetPath';
 
   const dispatch = createEventDispatcher();
 
@@ -90,107 +91,107 @@
   const images = [
     {
       id: 1,
-      src: '/images/indoor/2024-06-24 06-27-19_1719213072226.JPG',
+      src: getAssetPath('/images/indoor/2024-06-24 06-27-19_1719213072226.JPG'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 2,
-      src: '/images/indoor/2024-07-06 14-43-32.JPG',
+      src: getAssetPath('/images/indoor/2024-07-06 14-43-32.JPG'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 3,
-      src: '/images/indoor/2024-07-06 14-46-41.JPG',
+      src: getAssetPath('/images/indoor/2024-07-06 14-46-41.JPG'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 4,
-      src: '/images/indoor/cabinet.jpg',
+      src: getAssetPath('/images/indoor/cabinet.jpg'),
       alt: $currentLang === 'en' ? 'Cabinet' : 'Шкаф'
     },
     {
       id: 5,
-      src: '/images/indoor/shelf.jpg',
+      src: getAssetPath('/images/indoor/shelf.jpg'),
       alt: $currentLang === 'en' ? 'Shelf' : 'Полка'
     },
     {
       id: 6,
-      src: '/images/indoor/2024-05-11 12-36-40.JPG',
+      src: getAssetPath('/images/indoor/2024-05-11 12-36-40.JPG'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 7,
-      src: '/images/indoor/2024-08-10 08-22-03.JPG',
+      src: getAssetPath('/images/indoor/2024-08-10 08-22-03.JPG'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 8,
-      src: '/images/indoor/2024-08-26 13-39-44.JPG',
+      src: getAssetPath('/images/indoor/2024-08-26 13-39-44.JPG'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 9,
-      src: '/images/indoor/2024-09-09 15-35-50.JPG',
+      src: getAssetPath('/images/indoor/2024-09-09 15-35-50.JPG'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 10,
-      src: '/images/indoor/photo_2025-07-21_21-38-26.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-38-26.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 11,
-      src: '/images/indoor/photo_2025-07-21_21-38-27.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-38-27.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 12,
-      src: '/images/indoor/photo_2025-07-21_21-38-31.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-38-31.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 13,
-      src: '/images/indoor/photo_2025-07-21_21-38-36.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-38-36.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 14,
-      src: '/images/indoor/photo_2025-07-21_21-38-52.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-38-52.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 15,
-      src: '/images/indoor/photo_2025-07-21_21-38-54.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-38-54.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 16,
-      src: '/images/indoor/photo_2025-07-21_21-39-11.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-39-11.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 17,
-      src: '/images/indoor/photo_2025-07-21_21-39-12.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-39-12.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 18,
-      src: '/images/indoor/photo_2025-07-21_21-39-14.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-39-14.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 19,
-      src: '/images/indoor/photo_2025-07-21_21-39-16.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-39-16.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 20,
-      src: '/images/indoor/photo_2025-07-21_21-39-53.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-39-53.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
       id: 21,
-      src: '/images/indoor/photo_2025-07-21_21-39-56.jpg',
+      src: getAssetPath('/images/indoor/photo_2025-07-21_21-39-56.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     }
   ];

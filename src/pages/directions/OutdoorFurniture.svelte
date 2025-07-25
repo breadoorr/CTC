@@ -3,6 +3,7 @@
   import ContactForm from '../../components/ContactForm.svelte';
   import { currentLang, t } from '../../stores/languageStore';
   import { link, loc } from 'svelte-spa-router';
+  import { getAssetPath } from '../../utils/assetPath';
 
   const dispatch = createEventDispatcher();
 
@@ -90,132 +91,132 @@
   const images = [
     {
       id: 1,
-      src: '/images/outdoor furniture/2024-04-11 11-18-49.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-04-11 11-18-49.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 2,
-      src: '/images/outdoor furniture/2024-04-11 11-18-53.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-04-11 11-18-53.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 3,
-      src: '/images/outdoor furniture/2024-04-11 11-19-20.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-04-11 11-19-20.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 4,
-      src: '/images/outdoor furniture/2024-05-13 12-08-37.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-05-13 12-08-37.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 5,
-      src: '/images/outdoor furniture/2024-05-13 12-08-37 (1).JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-05-13 12-08-37 (1).JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 6,
-      src: '/images/outdoor furniture/2024-06-20 16-13-00.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-20 16-13-00.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 7,
-      src: '/images/outdoor furniture/2024-06-21 16-33-30.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-21 16-33-30.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 8,
-      src: '/images/outdoor furniture/2024-06-21 16-33-30 (1).JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-21 16-33-30 (1).JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 9,
-      src: '/images/outdoor furniture/2024-06-21 16-36-31.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-21 16-36-31.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 10,
-      src: '/images/outdoor furniture/2024-06-21 16-36-31 (1).JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-21 16-36-31 (1).JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 11,
-      src: '/images/outdoor furniture/2024-06-21 16-37-11.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-21 16-37-11.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 12,
-      src: '/images/outdoor furniture/2024-06-21 16-37-11 (1).JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-21 16-37-11 (1).JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 13,
-      src: '/images/outdoor furniture/2024-06-24 06-27-19.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-24 06-27-19.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 14,
-      src: '/images/outdoor furniture/2024-06-24 06-27-19_1719213059979.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-24 06-27-19_1719213059979.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 15,
-      src: '/images/outdoor furniture/2024-06-24 06-27-19_1719213080407.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-24 06-27-19_1719213080407.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 16,
-      src: '/images/outdoor furniture/2024-06-24 06-48-06.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-06-24 06-48-06.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 17,
-      src: '/images/outdoor furniture/2024-07-20 13-39-55.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-07-20 13-39-55.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 18,
-      src: '/images/outdoor furniture/2024-07-20 13-40-13.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-07-20 13-40-13.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 19,
-      src: '/images/outdoor furniture/2024-07-20 13-40-20.JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-07-20 13-40-20.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 20,
-      src: '/images/outdoor furniture/2024-07-20 13-40-20 (1).JPG',
+      src: getAssetPath('/images/outdoor furniture/2024-07-20 13-40-20 (1).JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 21,
-      src: '/images/outdoor furniture/chair.jpg',
+      src: getAssetPath('/images/outdoor furniture/chair.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Chair' : 'Уличный стул'
     },
     {
       id: 22,
-      src: '/images/outdoor furniture/photo_2025-07-01_07-07-40.jpg',
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-01_07-07-40.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 23,
-      src: '/images/outdoor furniture/photo_2025-07-01_07-07-40 (2).jpg',
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-01_07-07-40 (2).jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 24,
-      src: '/images/outdoor furniture/photo_2025-07-01_07-07-40 (3).jpg',
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-01_07-07-40 (3).jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 25,
-      src: '/images/outdoor furniture/photo_2025-07-21_21-39-49.jpg',
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-21_21-39-49.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
       id: 26,
-      src: '/images/outdoor furniture/photo_2025-07-21_21-39-50.jpg',
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-21_21-39-50.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
   ];
