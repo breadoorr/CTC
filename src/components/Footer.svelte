@@ -1,6 +1,7 @@
 <script>
   import { link, loc } from 'svelte-spa-router';
   import { currentLang, setLanguage, t, getLanguageFromPath } from '../stores/languageStore';
+  import { getAssetPath } from '../utils/assetPath';
 
   let currentPath = '';
 
@@ -24,7 +25,7 @@
     <div class="footer-content">
       <div class="footer-logo">
         <a href={getLangRoute('/')} use:link>
-          <img src="/logo/black%20logo.svg" alt="CTC" class="footer-logo-img">
+          <img src={getAssetPath('/logo/black%20logo.svg')} alt="CTC" class="footer-logo-img">
         </a>
         <p>{$t('woodenFurnitureArt')}</p>
         <div class="footer-social">

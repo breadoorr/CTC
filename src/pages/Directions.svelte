@@ -2,6 +2,7 @@
   import { link, loc } from 'svelte-spa-router';
   import { currentLang, t } from '../stores/languageStore';
   import ContactForm from '../components/ContactForm.svelte';
+  import { getAssetPath } from '../utils/assetPath';
 
   let currentPath = '';
 
@@ -40,7 +41,7 @@
     <div class="directions-grid">
       <!-- Direction 1 -->
       <div class="direction-card">
-        <div class="direction-image" style="background-image: url('/images/outdoor furniture/chair.jpg');"></div>
+        <div class="direction-image" style="background-image: url('{getAssetPath('/images/outdoor furniture/chair.jpg')}');"></div>
         <div class="direction-content">
           <h3>{$t('outdoorFurniture')}</h3>
           <p>{$t('outdoorFurnitureDesc')}</p>
@@ -50,7 +51,7 @@
 
       <!-- Direction 2 -->
       <div class="direction-card">
-        <div class="direction-image" style="background-image: url('/images/indoor/shelf.jpg');"></div>
+        <div class="direction-image" style="background-image: url('{getAssetPath('/images/indoor/shelf.jpg')}');"></div>
         <div class="direction-content">
           <h3>{$t('interiorFurniture')}</h3>
           <p>{$t('interiorFurnitureDesc')}</p>
@@ -60,7 +61,7 @@
 
       <!-- Direction 3 -->
       <div class="direction-card">
-        <div class="direction-image" style="background-image: url('/images/small forms/беседка.jpg');"></div>
+        <div class="direction-image" style="background-image: url('{getAssetPath('/images/small forms/беседка.jpg')}');"></div>
         <div class="direction-content">
           <h3>{$t('architecturalStructures')}</h3>
           <p>{$t('architecturalStructuresDesc')}</p>
@@ -80,7 +81,7 @@
 
       <!-- Direction 5 -->
       <div class="direction-card">
-        <div class="direction-image" style="background-image: url('/images/house/house(1).jpg');"></div>
+        <div class="direction-image" style="background-image: url('{getAssetPath('/images/house/house(1).jpg')}');"></div>
         <div class="direction-content">
           <h3>{$t('privateHomes')}</h3>
           <p>{$t('privateHomesDesc')}</p>
@@ -90,7 +91,7 @@
 
       <!-- Direction 6 -->
       <div class="direction-card">
-        <div class="direction-image" style="background-image: url('/images/restoration/after/photo_2025-07-01_07-07-40.jpg');"></div>
+        <div class="direction-image" style="background-image: url('{getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40.jpg')}');"></div>
         <div class="direction-content">
           <h3>{$t('restoration')}</h3>
           <p>{$t('restorationDesc')}</p>
@@ -100,7 +101,7 @@
 
       <!-- Direction 7: For Kids -->
       <div class="direction-card">
-        <div class="direction-image" style="background-image: url('/images/for kids/2024-06-21 16-19-32.JPG');"></div>
+        <div class="direction-image" style="background-image: url('{getAssetPath('/images/for kids/2024-06-21 16-19-32.JPG')}');"></div>
         <div class="direction-content">
           <h3>{$t('forKidsService')}</h3>
           <p>{$t('forKidsDesc')}</p>
