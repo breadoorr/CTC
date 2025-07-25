@@ -2,6 +2,7 @@
   import { link, loc } from 'svelte-spa-router';
   import { currentLang, setLanguage, t, getLanguageFromPath } from '../stores/languageStore';
   import { onMount, onDestroy } from 'svelte';
+  import { getAssetPath } from '../utils/assetPath';
 
   let isMobileMenuOpen = false;
   let isDropdownOpen = {};
@@ -94,7 +95,7 @@
     <nav>
       <div class="logo">
         <a href={getLangRoute('/')} use:link>
-          <img src="/logo/Лого СТС без рамки 4.jpg" alt="CTC" class="logo-img">
+          <img src={getAssetPath('/logo/Лого СТС без рамки 4.jpg')} alt="CTC" class="logo-img">
         </a>
       </div>
       <div class="nav-center">

@@ -1,5 +1,6 @@
 <script>
   import ContactForm from '../components/ContactForm.svelte';
+  import { getAssetPath } from '../utils/assetPath';
 </script>
 
 <section class="page-header">
@@ -20,7 +21,7 @@
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">
-          <img src="/images/indoor/2024-05-12%2023-19-10.JPG" alt="Консультация" />
+          <img src={getAssetPath('/images/indoor/2024-05-12%2023-19-10.JPG')} alt="Консультация" />
         </div>
         <div class="service-content">
           <h3>Консультация</h3>
@@ -30,7 +31,7 @@
 
       <div class="service-card">
         <div class="service-icon">
-          <img src="/images/outdoor%20furniture/2024-04-11%2011-18-49.JPG" alt="Проектирование" />
+          <img src={getAssetPath('/images/outdoor%20furniture/2024-04-11%2011-18-49.JPG')} alt="Проектирование" />
         </div>
         <div class="service-content">
           <h3>Проектирование</h3>
@@ -40,7 +41,7 @@
 
       <div class="service-card">
         <div class="service-icon">
-          <img src="/images/indoor/2024-06-01%2014-39-21.JPG" alt="Изготовление" />
+          <img src={getAssetPath('/images/indoor/2024-06-01%2014-39-21.JPG')} alt="Изготовление" />
         </div>
         <div class="service-content">
           <h3>Изготовление</h3>
@@ -50,7 +51,7 @@
 
       <div class="service-card">
         <div class="service-icon">
-          <img src="/images/outdoor%20furniture/2024-06-24%2006-27-19_1719213080407.JPG" alt="Доставка и монтаж" />
+          <img src={getAssetPath('/images/outdoor%20furniture/2024-06-24%2006-27-19_1719213080407.JPG')} alt="Доставка и монтаж" />
         </div>
         <div class="service-content">
           <h3>Доставка и монтаж</h3>
@@ -60,7 +61,7 @@
 
       <div class="service-card">
         <div class="service-icon">
-          <img src="/images/indoor/2024-07-06%2014-43-32.JPG" alt="Обслуживание" />
+          <img src={getAssetPath('/images/indoor/2024-07-06%2014-43-32.JPG')} alt="Обслуживание" />
         </div>
         <div class="service-content">
           <h3>Обслуживание</h3>

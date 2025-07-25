@@ -2,6 +2,7 @@
   import { createEventDispatcher, onMount } from 'svelte';
   import ContactForm from '../components/ContactForm.svelte';
   import { currentLang, t } from '../stores/languageStore';
+  import { getAssetPath } from '../utils/assetPath';
 
   const dispatch = createEventDispatcher();
 
@@ -73,8 +74,16 @@
     };
   });
 
+  // Helper function to process image paths in gallery items
+  function processGalleryImagePaths(images) {
+    return images.map(image => ({
+      ...image,
+      src: getAssetPath(image.src)
+    }));
+  }
+
   // Gallery images with translations for alt text
-  $: galleryImages = [
+  $: rawGalleryImages = [
     // For Kids Category
     {
       id: 1,
@@ -537,6 +546,9 @@
       category: 'restoration'
     }
   ];
+
+  // Process the raw gallery images to handle image paths correctly
+  $: galleryImages = processGalleryImagePaths(rawGalleryImages);
 
   // Filter categories
   $: categories = [

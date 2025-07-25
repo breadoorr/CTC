@@ -3,6 +3,7 @@
   import ContactForm from '../components/ContactForm.svelte';
   import { currentLang, t } from '../stores/languageStore';
   import { link, loc } from 'svelte-spa-router';
+  import { getAssetPath } from '../utils/assetPath';
 
   const dispatch = createEventDispatcher();
 
@@ -24,17 +25,17 @@
   // Slider functionality
   $: slides = [
     {
-      image: '/images/indoor/2024-06-01 14-39-21.JPG',
+      image: getAssetPath('/images/indoor/2024-06-01 14-39-21.JPG'),
       title: $t('customFurnitureTitle'),
       description: $t('customFurnitureDesc')
     },
     {
-      image: '/images/indoor/2024-05-12 23-19-10.JPG',
+      image: getAssetPath('/images/indoor/2024-05-12 23-19-10.JPG'),
       title: $t('interiorFurnitureTitle'),
       description: $t('interiorFurnitureDesc')
     },
     {
-      image: '/images/small forms/963A9646.jpg',
+      image: getAssetPath('/images/small forms/963A9646.jpg'),
       title: $t('outdoorFurnitureTitle'),
       description: $t('outdoorFurnitureDesc')
     }
@@ -213,7 +214,7 @@
     <div class="services-grid">
       <a href={getLangRoute('/directions/street-furniture')} use:link class="service-card">
         <div class="service-icon">
-          <img src="/images/outdoor furniture/chair.jpg" alt={$t('outdoorFurnitureService')} />
+          <img src={getAssetPath('/images/outdoor furniture/chair.jpg')} alt={$t('outdoorFurnitureService')} />
           <div class="service-content">
             <h3 class="service-title">{$t('outdoorFurnitureService')}</h3>
             <p class="service-description">{$t('outdoorFurnitureDesc')}</p>
@@ -223,7 +224,7 @@
 
       <a href={getLangRoute('/directions/interior-furniture')} use:link class="service-card">
         <div class="service-icon">
-          <img src="/images/indoor/shelf.jpg" alt={$t('interiorFurnitureService')} />
+          <img src={getAssetPath('/images/indoor/shelf.jpg')} alt={$t('interiorFurnitureService')} />
           <div class="service-content">
             <h3 class="service-title">{$t('interiorFurnitureService')}</h3>
             <p class="service-description">{$t('interiorFurnitureDesc')}</p>
@@ -233,7 +234,7 @@
 
       <a href={getLangRoute('/directions/architectural-forms')} use:link class="service-card">
         <div class="service-icon">
-          <img src="/images/small%20forms/беседка.jpg" alt={$t('architecturalStructuresService')} />
+          <img src={getAssetPath('/images/small%20forms/беседка.jpg')} alt={$t('architecturalStructuresService')} />
           <div class="service-content">
             <h3 class="service-title">{$t('architecturalStructuresService')}</h3>
             <p class="service-description">{$t('architecturalStructuresDesc')}</p>
@@ -243,7 +244,7 @@
 
       <a href={getLangRoute('/directions/for-kids')} use:link class="service-card">
         <div class="service-icon">
-          <img src="/images/for%20kids/2024-06-21 16-19-32.JPG" alt={$t('forKidsService')} />
+          <img src={getAssetPath('/images/for%20kids/2024-06-21 16-19-32.JPG')} alt={$t('forKidsService')} />
           <div class="service-content">
             <h3 class="service-title">{$t('forKidsService')}</h3>
             <p class="service-description">{$t('forKidsDesc')}</p>
@@ -253,7 +254,7 @@
 
       <a href={getLangRoute('/directions/private-houses')} use:link class="service-card">
         <div class="service-icon">
-          <img src="/images/house/house(1).jpg" alt={$t('privateHomesService')} />
+          <img src={getAssetPath('/images/house/house(1).jpg')} alt={$t('privateHomesService')} />
           <div class="service-content">
             <h3 class="service-title">{$t('privateHomesService')}</h3>
             <p class="service-description">{$t('privateHomesDesc')}</p>
@@ -263,7 +264,7 @@
 
       <a href={getLangRoute('/directions/restoration')} use:link class="service-card">
         <div class="service-icon">
-          <img src="/images/restoration/after/photo_2025-07-01_07-07-40.jpg" alt={$t('restorationService')} />
+          <img src={getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40.jpg')} alt={$t('restorationService')} />
           <div class="service-content">
             <h3 class="service-title">{$t('restorationService')}</h3>
             <p class="service-description">{$t('restorationDesc')}</p>

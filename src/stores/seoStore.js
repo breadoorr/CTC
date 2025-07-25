@@ -1,9 +1,28 @@
 import { derived } from 'svelte/store';
 import { currentLang, languages } from './languageStore';
 import { loc } from 'svelte-spa-router';
+import { getAssetPath } from '../utils/assetPath';
+
+// Helper function to process image paths in the SEO data
+function processImagePaths(data) {
+  const processed = { ...data };
+
+  // Process each language
+  Object.keys(processed).forEach(lang => {
+    // Process each page
+    Object.keys(processed[lang]).forEach(page => {
+      // Process ogImage if it exists and is a string
+      if (processed[lang][page].ogImage && typeof processed[lang][page].ogImage === 'string') {
+        processed[lang][page].ogImage = getAssetPath(processed[lang][page].ogImage);
+      }
+    });
+  });
+
+  return processed;
+}
 
 // SEO data for each page and language
-const seoData = {
+const seoDataRaw = {
   en: {
     home: {
       title: 'CTC - Wooden Furniture and Custom Woodwork in Cyprus',
@@ -201,6 +220,9 @@ const seoData = {
     }
   }
 };
+
+// Process the raw SEO data to handle image paths correctly
+const seoData = processImagePaths(seoDataRaw);
 
 // Helper function to get the page name from the path
 function getPageFromPath(path) {

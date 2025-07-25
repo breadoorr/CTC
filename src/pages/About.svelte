@@ -1,5 +1,6 @@
 <script>
   import ContactForm from '../components/ContactForm.svelte';
+  import { getAssetPath } from '../utils/assetPath';
 </script>
 
 <section class="page-header">
@@ -12,7 +13,7 @@
   <div class="container">
     <div class="about-content">
       <div class="about-image">
-        <img src="/images/outdoor%20furniture/2024-05-13%2012-08-37.JPG" alt="Наша компания" />
+        <img src={getAssetPath('/images/outdoor%20furniture/2024-05-13%2012-08-37.JPG')} alt="Наша компания" />
       </div>
 
       <div class="about-text">
