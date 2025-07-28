@@ -135,7 +135,6 @@
   .page-header {
     background-color: var(--secondary-color);
     color: var(--white);
-    padding: 8rem 0 4rem;
     margin-bottom: 2rem;
   }
 
