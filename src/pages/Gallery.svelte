@@ -470,77 +470,39 @@
       category: 'private-houses'
     },
 
-    // Restoration Category - Before
-    {
-      id: 54,
-      src: '/images/restoration/before/photo_2025-07-01_07-07-40.jpg',
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration'
-    },
-    {
-      id: 55,
-      src: '/images/restoration/before/2024-05-14 16-44-07.JPG',
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration'
-    },
-    {
-      id: 56,
-      src: '/images/restoration/before/2024-05-14 16-44-40.JPG',
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration'
-    },
-    {
-      id: 57,
-      src: '/images/restoration/before/2024-05-14 16-45-04.JPG',
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration'
-    },
-    {
-      id: 58,
-      src: '/images/restoration/before/2024-05-14 16-47-06.JPG',
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration'
-    },
-    {
-      id: 59,
-      src: '/images/restoration/before/photo_2025-07-21_21-14-46.jpg',
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration'
-    },
-
     // Restoration Category - After
     {
-      id: 60,
+      id: 54,
       src: '/images/restoration/after/photo_2025-07-01_07-07-40.jpg',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 61,
+      id: 55,
       src: '/images/restoration/after/photo_2025-07-01_07-07-40 (2).jpg',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 62,
+      id: 56,
       src: '/images/restoration/after/photo_2025-07-01_07-07-40 (3).jpg',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 63,
+      id: 57,
       src: '/images/restoration/after/2024-05-18 13-49-31.JPG',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 64,
+      id: 58,
       src: '/images/restoration/after/2024-05-18 13-50-34.JPG',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 65,
+      id: 59,
       src: '/images/restoration/after/photo_2025-07-21_21-14-46.jpg',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'

@@ -219,6 +219,26 @@
       src: getAssetPath('/images/outdoor furniture/photo_2025-07-21_21-39-50.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
+    {
+      id: 27,
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-26_15-39-24.jpg'),
+      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
+    },
+    {
+      id: 28,
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-26_15-39-27.jpg'),
+      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
+    },
+    {
+      id: 29,
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-26_15-39-29.jpg'),
+      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
+    },
+    {
+      id: 30,
+      src: getAssetPath('/images/outdoor furniture/photo_2025-07-26_15-39-32.jpg'),
+      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
+    },
   ];
 </script>
 

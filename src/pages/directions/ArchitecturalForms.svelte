@@ -149,6 +149,24 @@
       src: getAssetPath('/images/small forms/963A9646.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
+    {
+      id: 13,
+      src: getAssetPath('/images/small forms/photo_2025-07-25_17-01-06.jpg'),
+      alt: $currentLang === 'en' ? 'Small Architectural Structures' : 'Малые архитектурные формы',
+      category: 'architectural-forms'
+    },
+    {
+      id: 14,
+      src: getAssetPath('/images/small forms/photo_2025-07-25_17-01-07.jpg'),
+      alt: $currentLang === 'en' ? 'Small Architectural Structures' : 'Малые архитектурные формы',
+      category: 'architectural-forms'
+    },
+    {
+      id: 15,
+      src: getAssetPath('/images/small forms/photo_2025-07-25_17-01-17.jpg'),
+      alt: $currentLang === 'en' ? 'Small Architectural Structures' : 'Малые архитектурные формы',
+      category: 'architectural-forms'
+    },
   ];
 </script>
 

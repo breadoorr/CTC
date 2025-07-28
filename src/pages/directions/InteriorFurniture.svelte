@@ -193,6 +193,21 @@
       id: 21,
       src: getAssetPath('/images/indoor/photo_2025-07-21_21-39-56.jpg'),
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
+    },
+    {
+      id: 22,
+      src: getAssetPath('/images/indoor/photo_2025-07-25_17-01-14.jpg'),
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
+    },
+    {
+      id: 23,
+      src: getAssetPath('/images/indoor/photo_2025-07-25_17-01-20.jpg'),
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
+    },
+    {
+      id: 24,
+      src: getAssetPath('/images/indoor/photo_2025-07-25_17-01-25.jpg'),
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     }
   ];
 </script>

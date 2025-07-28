@@ -109,6 +109,11 @@
       src: getAssetPath('/images/indoor/photo_2024-01-26_17-56-21.jpg'),
       alt: $currentLang === 'en' ? 'Furniture for Kids' : 'Мебель для детей'
     },
+    {
+      id: 6,
+      src: getAssetPath('/images/for kids/photo_2025-07-26_15-23-05.jpg'),
+      alt: $currentLang === 'en' ? 'Furniture for Kids' : 'Мебель для детей'
+    },
   ];
 </script>
 

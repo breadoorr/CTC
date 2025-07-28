@@ -84,82 +84,127 @@
     };
   });
 
-  // Gallery images with translations for alt text
+  // Gallery images with translations for alt text (only after restoration photos)
   const images = [
-    // Before images
+    // After images only
     {
       id: 1,
-      src: getAssetPath('/images/restoration/before/photo_2025-07-01_07-07-40.jpg'),
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration-before'
-    },
-    {
-      id: 2,
-      src: getAssetPath('/images/restoration/before/2024-05-14 16-44-07.JPG'),
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration-before'
-    },
-    {
-      id: 3,
-      src: getAssetPath('/images/restoration/before/2024-05-14 16-44-40.JPG'),
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration-before'
-    },
-    {
-      id: 4,
-      src: getAssetPath('/images/restoration/before/2024-05-14 16-45-04.JPG'),
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration-before'
-    },
-    {
-      id: 5,
-      src: getAssetPath('/images/restoration/before/2024-05-14 16-47-06.JPG'),
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration-before'
-    },
-    {
-      id: 6,
-      src: getAssetPath('/images/restoration/before/photo_2025-07-21_21-14-46.jpg'),
-      alt: $currentLang === 'en' ? 'Restoration Before' : 'Реставрация До',
-      category: 'restoration-before'
-    },
-
-    // After images
-    {
-      id: 7,
-      src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40.jpg'),
+      src: getAssetPath('/images/restoration/after/photo_2025-07-26_15-42-53.jpg'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
-      id: 8,
+      id: 2,
       src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40 (2).jpg'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
-      id: 9,
+      id: 3,
       src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40 (3).jpg'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
-      id: 10,
+      id: 4,
       src: getAssetPath('/images/restoration/after/2024-05-18 13-49-31.JPG'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
-      id: 11,
+      id: 5,
       src: getAssetPath('/images/restoration/after/2024-05-18 13-50-34.JPG'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
     },
     {
-      id: 12,
+      id: 6,
       src: getAssetPath('/images/restoration/after/photo_2025-07-21_21-14-46.jpg'),
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration-after'
+    }
+  ];
+
+  // For mobile touch support
+  let touchToggledItems = {};
+
+  function toggleBeforeAfterOnTouch(id) {
+    touchToggledItems[id] = !touchToggledItems[id];
+  }
+
+  // Create before-after pairs for hover comparison
+  const beforeAfterPairs = [
+    {
+      id: 1,
+      beforeImage: {
+        src: getAssetPath('/images/restoration/before/photo_2025-07-26_15-41-45.jpg'),
+        alt: $currentLang === 'en' ? 'Before Restoration' : 'До реставрации'
+      },
+      afterImage: {
+        src: getAssetPath('/images/restoration/after/photo_2025-07-26_15-42-53.jpg'),
+        alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
+      },
+      title: $currentLang === 'en' ? 'Furniture Restoration' : 'Реставрация мебели'
+    },
+    {
+      id: 2,
+      beforeImage: {
+        src: getAssetPath('/images/restoration/before/2024-06-12 18-35-46.JPG'),
+        alt: $currentLang === 'en' ? 'Before Restoration' : 'До реставрации'
+      },
+      afterImage: {
+        src: getAssetPath('/images/restoration/after/2024-05-18 13-49-31.JPG'),
+        alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
+      },
+      title: $currentLang === 'en' ? 'Wooden Element Restoration' : 'Реставрация деревянных элементов'
+    },
+    {
+      id: 3,
+      beforeImage: {
+        src: getAssetPath('/images/restoration/before/2024-05-14 16-45-04.JPG'),
+        alt: $currentLang === 'en' ? 'Before Restoration' : 'До реставрации'
+      },
+      afterImage: {
+        src: getAssetPath('/images/restoration/after/photo_2025-07-26_15-42-57.jpg'),
+        alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
+      },
+      title: $currentLang === 'en' ? 'Wooden Chair Restoration' : 'Реставрация деревянного стула'
+    },
+    {
+      id: 4,
+      beforeImage: {
+        src: getAssetPath('/images/restoration/before/2024-05-14 16-44-07.JPG'),
+        alt: $currentLang === 'en' ? 'Before Restoration' : 'До реставрации'
+      },
+      afterImage: {
+        src: getAssetPath('/images/restoration/after/photo_2025-07-26_15-42-51.jpg'),
+        alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
+      },
+      title: $currentLang === 'en' ? 'Antique Furniture Restoration' : 'Реставрация антикварной мебели'
+    },
+    {
+      id: 5,
+      beforeImage: {
+        src: getAssetPath('/images/restoration/before/img.png'),
+        alt: $currentLang === 'en' ? 'Before Restoration' : 'До реставрации'
+      },
+      afterImage: {
+        src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40 (2).jpg'),
+        alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
+      },
+      title: $currentLang === 'en' ? 'Wooden Table Restoration' : 'Реставрация деревянного стола'
+    },
+    {
+      id: 6,
+      beforeImage: {
+        src: getAssetPath('/images/restoration/before/photo_2025-07-21_21-14-47.jpg'),
+        alt: $currentLang === 'en' ? 'Before Restoration' : 'До реставрации'
+      },
+      afterImage: {
+        src: getAssetPath('/images/restoration/after/photo_2025-07-21_21-14-46.jpg'),
+        alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
+      },
+      title: $currentLang === 'en' ? 'Wooden Cabinet Restoration' : 'Реставрация деревянного шкафа'
     }
   ];
 </script>
@@ -224,13 +269,31 @@
       </div>
     </div>
 
-    <h2>{$currentLang === 'en' ? 'Before and After' : 'До и После'}</h2>
-    <div class="gallery-grid">
-      {#each images as image}
-        <div class="gallery-item" on:click={() => openImageModal(image)}>
-          <img src={image.src} alt={image.alt} />
-          <div class="gallery-item-overlay">
-            <span class="view-icon">+</span>
+    <h2>{$currentLang === 'en' ? 'Before and After Comparison' : 'Сравнение До и После'}</h2>
+    <p class="comparison-intro" data-mobile-text={$currentLang === 'en' 
+      ? 'On mobile, tap the image to toggle between before and after states.'
+      : 'На мобильных устройствах нажмите на изображение, чтобы переключаться между состояниями до и после.'}>
+      {$currentLang === 'en' 
+        ? 'Hover over the "After" image to see the "Before" state of our restoration projects.'
+        : 'Наведите курсор на изображение "После", чтобы увидеть состояние "До" наших реставрационных проектов.'}
+    </p>
+
+    <div class="before-after-container">
+      {#each beforeAfterPairs as pair}
+        <div class="before-after-pair">
+          <div 
+            class="hover-comparison" 
+            class:toggled={touchToggledItems[pair.id]} 
+            on:click={() => toggleBeforeAfterOnTouch(pair.id)}
+          >
+            <div class="comparison-image after-image">
+              <img src={pair.afterImage.src} alt={pair.afterImage.alt} />
+              <div class="image-label after-label">{$currentLang === 'en' ? 'AFTER' : 'ПОСЛЕ'}</div>
+            </div>
+            <div class="comparison-image before-image">
+              <img src={pair.beforeImage.src} alt={pair.beforeImage.alt} />
+              <div class="image-label before-label">{$currentLang === 'en' ? 'BEFORE' : 'ДО'}</div>
+            </div>
           </div>
         </div>
       {/each}
@@ -606,6 +669,102 @@
     align-items: center;
   }
 
+  /* Before-After Comparison Styles */
+  .comparison-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .before-after-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .before-after-pair {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .before-after-pair h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+
+  .hover-comparison {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+
+  .comparison-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  .before-image {
+    opacity: 0;
+    z-index: 2;
+  }
+
+  .after-image {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .hover-comparison:hover .before-image,
+  .hover-comparison.toggled .before-image {
+    opacity: 1;
+  }
+
+  .hover-comparison:hover .after-image,
+  .hover-comparison.toggled .after-image {
+    opacity: 0;
+  }
+
+  .comparison-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .image-label {
+    position: absolute;
+    bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 3;
+  }
+
+  .before-label {
+    left: 20px;
+  }
+
+  .after-label {
+    right: 20px;
+  }
+
   @media (max-width: 768px) {
     .direction-features {
       grid-template-columns: 1fr;
@@ -628,6 +787,33 @@
     .modal-arrow {
       width: 40px;
       height: 40px;
+    }
+
+    .before-after-container {
+      grid-template-columns: 1fr;
+    }
+
+    .hover-comparison {
+      height: 350px;
+    }
+
+    /* Disable hover effects on touch devices */
+    .hover-comparison:hover .before-image {
+      opacity: 0;
+    }
+
+    .hover-comparison:hover .after-image {
+      opacity: 1;
+    }
+
+    /* Add touch-friendly instructions for mobile */
+    .comparison-intro::after {
+      content: attr(data-mobile-text);
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--secondary-color);
     }
   }
 </style>
