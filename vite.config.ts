@@ -9,10 +9,7 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
     strictPort: true,
-    allowedHosts: ['breadoorr.github.io'],
-    cors: {
-      origin: ['https://43a175f3b1f5.ngrok-free.app', 'http://localhost:5173', 'https://breadoorr.github.io']
-    },
+    allowedHosts: ['breadoorr.github.io', 'ctc-ddorabbles-projects.vercel.app', 'ctc.cy'],
     hmr: {
       clientPort: 443,
       protocol: 'wss'
