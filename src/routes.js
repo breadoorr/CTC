@@ -5,6 +5,7 @@ import Services from './pages/Services.svelte';
 import Gallery from './pages/Gallery.svelte';
 import Blog from './pages/Blog.svelte';
 import Contact from './pages/Contact.svelte';
+import Video from './pages/Video.svelte';
 
 // Import direction pages
 import OutdoorFurniture from './pages/directions/OutdoorFurniture.svelte';
@@ -78,6 +79,12 @@ export const routes = {
     return acc;
   }, {}),
 
+  // Language-specific video pages
+  ...languages.reduce((acc, lang) => {
+    acc[`/${lang}/video`] = Video;
+    return acc;
+  }, {}),
+
   // Language-specific direction pages
   ...languages.reduce((acc, lang) => {
     acc[`/${lang}/directions/street-furniture`] = OutdoorFurniture;
@@ -119,6 +126,11 @@ export const routes = {
     const lang = getPreferredLanguage() || defaultLanguage;
     replace(`/${lang}/contact`);
     return Contact;
+  },
+  '/video': () => {
+    const lang = getPreferredLanguage() || defaultLanguage;
+    replace(`/${lang}/video`);
+    return Video;
   },
 
   // Redirect direction routes

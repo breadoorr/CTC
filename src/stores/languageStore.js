@@ -96,6 +96,7 @@ const translations = {
     privateHomes: 'Private Residential Homes',
     restoration: 'Restoration and Maintenance of Wooden Products',
     gallery: 'Gallery',
+    video: 'Video',
     blog: 'Blog',
     aboutUs: 'About Us',
     companyTeam: 'Company team',
@@ -139,6 +140,10 @@ const translations = {
 
     // Gallery page
     galleryTitle: 'Gallery',
+
+    // Video page
+    videoIntro: 'Watch our craftsmanship in action. This video showcases our woodworking process and the quality of our products.',
+    videoTitle: 'CTC Woodworking Video',
     galleryIntro: 'In our gallery, you can see photos of our completed works. You can explore examples of our projects and evaluate the quality of execution.',
     allWorks: 'All Works',
     streetFurniture: 'Outdoor Furniture',
@@ -185,6 +190,7 @@ const translations = {
     privateHomes: 'Частные жилые дома',
     restoration: 'Реставрация и уход за изделиями из дерева',
     gallery: 'Галерея',
+    video: 'Видео',
     blog: 'Блог',
     aboutUs: 'О компании',
     companyTeam: 'Команда компании',
@@ -228,6 +234,10 @@ const translations = {
 
     // Gallery page
     galleryTitle: 'Галерея',
+
+    // Video page
+    videoIntro: 'Посмотрите наше мастерство в действии. Это видео демонстрирует наш процесс деревообработки и качество нашей продукции.',
+    videoTitle: 'Видео о деревообработке CTC',
     galleryIntro: 'В нашей галерее представлены фотографии выполненных нами работ. Вы можете ознакомиться с примерами наших проектов и оценить качество исполнения.',
     allWorks: 'Все работы',
     streetFurniture: 'Уличная мебель',

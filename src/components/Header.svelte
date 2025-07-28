@@ -112,6 +112,7 @@
             </div>
           </li>
           <li><a href={getLangRoute('/gallery')} use:link>{$t('gallery')}</a></li>
+          <li><a href={getLangRoute('/video')} use:link>{$t('video')}</a></li>
           <li><a href={getLangRoute('/')} use:link>{$t('blog')}</a></li>
           <li class="dropdown">
             <a href={getLangRoute('/contact')} use:link>{$t('aboutUs')}</a>
@@ -210,6 +211,7 @@
           {/if}
         </li>
         <li><a href={getLangRoute('/gallery')} use:link on:click={toggleMobileMenu}>{$t('gallery')}</a></li>
+        <li><a href={getLangRoute('/video')} use:link on:click={toggleMobileMenu}>{$t('video')}</a></li>
         <li><a href={getLangRoute('/')} use:link on:click={toggleMobileMenu}>{$t('blog')}</a></li>
         <li>
           <div class="mobile-nav-item">
