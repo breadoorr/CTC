@@ -110,18 +110,8 @@
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
-      id: 5,
-      src: getAssetPath('/images/small forms/963A9632.jpg'),
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
-    },
-    {
       id: 6,
       src: getAssetPath('/images/small forms/963A9633.jpg'),
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
-    },
-    {
-      id: 7,
-      src: getAssetPath('/images/small forms/963A9634.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
@@ -137,11 +127,6 @@
     {
       id: 10,
       src: getAssetPath('/images/small forms/963A9644.jpg'),
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
-    },
-    {
-      id: 11,
-      src: getAssetPath('/images/small forms/963A9645.jpg'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {

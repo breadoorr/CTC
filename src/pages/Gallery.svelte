@@ -142,61 +142,55 @@
       category: 'interior-furniture'
     },
     {
-      id: 9.1,
+      id: 10,
       src: '/images/indoor/photo_2025-07-21_21-38-31.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 9.2,
+      id: 11,
       src: '/images/indoor/photo_2025-07-21_21-38-36.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 9.3,
+      id: 12,
       src: '/images/indoor/photo_2025-07-21_21-38-52.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 9.4,
+      id: 13,
       src: '/images/indoor/photo_2025-07-21_21-38-54.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 9.5,
+      id: 14,
       src: '/images/indoor/photo_2025-07-21_21-39-11.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 9.6,
-      src: '/images/indoor/photo_2025-07-21_21-39-12.jpg',
-      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
-      category: 'interior-furniture'
-    },
-    {
-      id: 9.7,
+      id: 16,
       src: '/images/indoor/photo_2025-07-21_21-39-14.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 9.8,
+      id: 17,
       src: '/images/indoor/photo_2025-07-21_21-39-16.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 9.9,
+      id: 18,
       src: '/images/indoor/photo_2025-07-21_21-39-53.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 9.95,
+      id: 19,
       src: '/images/indoor/photo_2025-07-21_21-39-56.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
@@ -204,229 +198,187 @@
 
     // Outdoor Furniture Category
     {
-      id: 10,
+      id: 20,
       src: '/images/outdoor furniture/2024-04-11 11-18-49.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 11,
+      id: 21,
       src: '/images/outdoor furniture/2024-04-11 11-18-53.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 12,
-      src: '/images/outdoor furniture/2024-04-11 11-19-20.JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 13,
+      id: 23,
       src: '/images/outdoor furniture/2024-05-13 12-08-37.JPG',
       alt: $currentLang === 'en' ? 'Small Architectural Structures' : 'Малые архитектурные формы',
       category: 'architectural-forms'
     },
     {
-      id: 14,
+      id: 24,
       src: '/images/outdoor furniture/2024-05-13 12-08-37 (1).JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 15,
-      src: '/images/outdoor furniture/2024-06-20 16-13-00.JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 16,
+      id: 26,
       src: '/images/outdoor furniture/2024-06-21 16-33-30.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 17,
-      src: '/images/outdoor furniture/2024-06-21 16-33-30 (1).JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 18,
+      id: 28,
       src: '/images/outdoor furniture/2024-06-21 16-36-31.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 19,
-      src: '/images/outdoor furniture/2024-06-21 16-36-31 (1).JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 20,
+      id: 30,
       src: '/images/outdoor furniture/2024-06-21 16-37-11.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 21,
+      id: 31,
       src: '/images/outdoor furniture/2024-06-21 16-37-11 (1).JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 22,
+      id: 32,
       src: '/images/outdoor furniture/2024-06-24 06-27-19.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 23,
+      id: 33,
       src: '/images/outdoor furniture/2024-06-24 06-27-19_1719213059979.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 24,
+      id: 34,
       src: '/images/outdoor furniture/2024-06-24 06-27-19_1719213080407.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 25,
+      id: 35,
       src: '/images/outdoor furniture/2024-06-24 06-48-06.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 26,
+      id: 36,
       src: '/images/outdoor furniture/2024-07-20 13-39-55.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 27,
-      src: '/images/outdoor furniture/2024-07-20 13-40-13.JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 28,
+      id: 38,
       src: '/images/outdoor furniture/2024-07-20 13-40-20.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 29,
-      src: '/images/outdoor furniture/2024-07-20 13-40-20 (1).JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 30,
+      id: 40,
       src: '/images/outdoor furniture/chair.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Chair' : 'Уличный стул',
       category: 'street-furniture'
     },
     {
-      id: 31,
+      id: 41,
       src: '/images/outdoor furniture/photo_2025-07-01_07-07-40.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 32,
+      id: 42,
       src: '/images/outdoor furniture/photo_2025-07-01_07-07-40 (2).jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 33,
+      id: 43,
       src: '/images/outdoor furniture/photo_2025-07-01_07-07-40 (3).jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 34,
+      id: 44,
       src: '/images/outdoor furniture/photo_2025-07-21_21-39-49.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 35,
+      id: 45,
       src: '/images/outdoor furniture/photo_2025-07-21_21-39-50.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 36,
+      id: 46,
       src: '/images/small forms/963A9631.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 37,
-      src: '/images/small forms/963A9632.jpg',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 38,
+      id: 48,
       src: '/images/small forms/963A9633.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 39,
+      id: 49,
       src: '/images/small forms/963A9634.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 40,
+      id: 50,
       src: '/images/small forms/963A9642.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 41,
+      id: 51,
       src: '/images/small forms/963A9643.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 42,
+      id: 52,
       src: '/images/small forms/963A9644.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 43,
+      id: 53,
       src: '/images/small forms/963A9645.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 44,
+      id: 54,
       src: '/images/small forms/963A9646.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
     {
-      id: 45,
+      id: 55,
       src: '/images/small forms/Беседка1.jpg',
       alt: $currentLang === 'en' ? 'Gazebo' : 'Беседка',
       category: 'architectural-forms'
     },
     {
-      id: 46,
+      id: 56,
       src: '/images/small forms/беседка.jpg',
       alt: $currentLang === 'en' ? 'Gazebo' : 'Беседка',
       category: 'architectural-forms'
     },
     {
-      id: 47,
+      id: 57,
       src: '/images/small forms/photo_2025-07-21_21-42-37.jpg',
       alt: $currentLang === 'en' ? 'Small Architectural Structures' : 'Малые архитектурные формы',
       category: 'architectural-forms'
@@ -434,37 +386,37 @@
 
     // House Category
     {
-      id: 48,
+      id: 58,
       src: '/images/house/33bd0883de8e84637a5259827d798d53cedc01f1.jpeg',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
-      id: 49,
+      id: 59,
       src: '/images/house/a4f1748b8d0ba362d3ddb23f529e98b6.jpg',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
-      id: 50,
+      id: 60,
       src: '/images/house/house(1).jpg',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
-      id: 51,
+      id: 61,
       src: '/images/house/house(2).jpg',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
-      id: 52,
+      id: 62,
       src: '/images/house/house(3).jpg',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
-      id: 53,
+      id: 63,
       src: '/images/house/house(4).jpg',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
@@ -472,37 +424,37 @@
 
     // Restoration Category - After
     {
-      id: 54,
+      id: 64,
       src: '/images/restoration/after/photo_2025-07-01_07-07-40.jpg',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 55,
+      id: 65,
       src: '/images/restoration/after/photo_2025-07-01_07-07-40 (2).jpg',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 56,
+      id: 66,
       src: '/images/restoration/after/photo_2025-07-01_07-07-40 (3).jpg',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 57,
+      id: 67,
       src: '/images/restoration/after/2024-05-18 13-49-31.JPG',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 58,
+      id: 68,
       src: '/images/restoration/after/2024-05-18 13-50-34.JPG',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
     },
     {
-      id: 59,
+      id: 69,
       src: '/images/restoration/after/photo_2025-07-21_21-14-46.jpg',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
       category: 'restoration'
