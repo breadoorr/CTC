@@ -75,7 +75,22 @@
     }
   }
 
+  // For mobile toggle support
+  let touchToggledItems = {};
+
+  function toggleBeforeAfterOnTouch(id, showBefore) {
+    // Toggle the state for the specific item to show either before or after image
+    touchToggledItems = { ...touchToggledItems, [id]: showBefore };
+  }
+
   onMount(() => {
+    // Initialize touchToggledItems to show 'after' images by default
+    const initialState = {};
+    beforeAfterPairs.forEach(pair => {
+      initialState[pair.id] = false; // false for 'after', true for 'before'
+    });
+    touchToggledItems = initialState;
+
     return () => {
       // Clean up event listener on component unmount
       if (modalKeyboardListener) {
@@ -86,7 +101,6 @@
 
   // Gallery images with translations for alt text (only after restoration photos)
   const images = [
-    // After images only
     {
       id: 1,
       src: getAssetPath('/images/restoration/after/photo_2025-07-26_15-42-53.jpg'),
@@ -124,14 +138,6 @@
       category: 'restoration-after'
     }
   ];
-
-  // For mobile toggle support
-  let touchToggledItems = {};
-
-  function toggleBeforeAfterOnTouch(id) {
-    // Toggle the state for the specific item
-    touchToggledItems[id] = !touchToggledItems[id];
-  }
 
   // Create before-after pairs for hover comparison
   const beforeAfterPairs = [
@@ -220,9 +226,9 @@
   <div class="container">
     <div class="direction-intro">
       <p>
-        {$currentLang === 'en' 
-          ? 'We specialize in the restoration and maintenance of wooden products, giving new life to your cherished wooden items. Our expert craftsmen use traditional techniques and modern technology to restore your wooden furniture, floors, and decorative elements to their former glory.'
-          : 'Мы специализируемся на реставрации и уходе за изделиями из дерева, даря новую жизнь вашим ценным деревянным предметам. Наши опытные мастера используют традиционные техники и современные технологии, чтобы восстановить вашу деревянную мебель, полы и декоративные элементы до их прежнего великолепия.'}
+        {$currentLang === 'en'
+                ? 'We specialize in the restoration and maintenance of wooden products, giving new life to your cherished wooden items. Our expert craftsmen use traditional techniques and modern technology to restore your wooden furniture, floors, and decorative elements to their former glory.'
+                : 'Мы специализируемся на реставрации и уходе за изделиями из дерева, даря новую жизнь вашим ценным деревянным предметам. Наши опытные мастера используют традиционные техники и современные технологии, чтобы восстановить вашу деревянную мебель, полы и декоративные элементы до их прежнего великолепия.'}
       </p>
     </div>
 
@@ -235,9 +241,9 @@
         </div>
         <div class="feature-content">
           <h3>{$currentLang === 'en' ? 'Expert Restoration' : 'Экспертная реставрация'}</h3>
-          <p>{$currentLang === 'en' 
-            ? 'We restore wooden furniture, floors, and decorative elements with precision and care.'
-            : 'Мы реставрируем деревянную мебель, полы и декоративные элементы с точностью и заботой.'}</p>
+          <p>{$currentLang === 'en'
+                  ? 'We restore wooden furniture, floors, and decorative elements with precision and care.'
+                  : 'Мы реставрируем деревянную мебель, полы и декоративные элементы с точностью и заботой.'}</p>
         </div>
       </div>
 
@@ -250,8 +256,8 @@
         <div class="feature-content">
           <h3>{$currentLang === 'en' ? 'Quality Materials' : 'Качественные материалы'}</h3>
           <p>{$currentLang === 'en'
-            ? 'We use only the finest materials and finishes for our restoration projects.'
-            : 'Мы используем только лучшие материалы и отделки для наших проектов реставрации.'}</p>
+                  ? 'We use only the finest materials and finishes for our restoration projects.'
+                  : 'Мы используем только лучшие материалы и отделки для наших проектов реставрации.'}</p>
         </div>
       </div>
 
@@ -264,27 +270,27 @@
         <div class="feature-content">
           <h3>{$currentLang === 'en' ? 'Maintenance Services' : 'Услуги по уходу'}</h3>
           <p>{$currentLang === 'en'
-            ? 'We provide ongoing maintenance services to keep your wooden products looking their best.'
-            : 'Мы предоставляем услуги по регулярному уходу, чтобы ваши деревянные изделия всегда выглядели наилучшим образом.'}</p>
+                  ? 'We provide ongoing maintenance services to keep your wooden products looking their best.'
+                  : 'Мы предоставляем услуги по регулярному уходу, чтобы ваши деревянные изделия всегда выглядели наилучшим образом.'}</p>
         </div>
       </div>
     </div>
 
     <h2>{$currentLang === 'en' ? 'Before and After Comparison' : 'Сравнение До и После'}</h2>
-    <p class="comparison-intro" 
-      data-mobile-text-en="On mobile, use the BEFORE and AFTER buttons to switch between views."
-      data-mobile-text-ru="На мобильных устройствах используйте кнопки ДО и ПОСЛЕ для переключения между видами.">
-      {$currentLang === 'en' 
-        ? 'Hover over the "After" image to see the "Before" state of our restoration projects.'
-        : 'Наведите курсор на изображение "После", чтобы увидеть состояние "До" наших реставрационных проектов.'}
+    <p class="comparison-intro"
+       data-mobile-text-en="On mobile, use the BEFORE and AFTER buttons to switch between views."
+       data-mobile-text-ru="На мобильных устройствах используйте кнопки ДО и ПОСЛЕ для переключения между видами.">
+      {$currentLang === 'en'
+              ? 'Hover over the "After" image to see the "Before" state of our restoration projects.'
+              : 'Наведите курсор на изображение "После", чтобы увидеть состояние "До" наших реставрационных проектов.'}
     </p>
 
     <div class="before-after-container">
       {#each beforeAfterPairs as pair}
         <div class="before-after-pair">
-          <div 
-            class="hover-comparison" 
-            class:toggled={touchToggledItems[pair.id]} 
+          <div
+                  class="hover-comparison"
+                  class:toggled={touchToggledItems[pair.id]}
           >
             <div class="comparison-image after-image">
               <img src={pair.afterImage.src} alt={pair.afterImage.alt} />
@@ -297,17 +303,17 @@
 
             <!-- Mobile toggle buttons -->
             <div class="mobile-toggle-buttons">
-              <button 
-                class="toggle-btn before-btn" 
-                class:active={touchToggledItems[pair.id]} 
-                on:click={() => toggleBeforeAfterOnTouch(pair.id)}
+              <button
+                      class="toggle-btn before-btn"
+                      class:active={touchToggledItems[pair.id]}
+                      on:click={() => toggleBeforeAfterOnTouch(pair.id, true)}
               >
                 {$currentLang === 'en' ? 'BEFORE' : 'ДО'}
               </button>
-              <button 
-                class="toggle-btn after-btn" 
-                class:active={!touchToggledItems[pair.id]} 
-                on:click={() => touchToggledItems[pair.id] = false}
+              <button
+                      class="toggle-btn after-btn"
+                      class:active={!touchToggledItems[pair.id]}
+                      on:click={() => toggleBeforeAfterOnTouch(pair.id, false)}
               >
                 {$currentLang === 'en' ? 'AFTER' : 'ПОСЛЕ'}
               </button>
@@ -326,14 +332,14 @@
         <h2>{$currentLang === 'en' ? 'Give New Life to Your Wooden Products' : 'Дайте новую жизнь вашим деревянным изделиям'}</h2>
         <p>
           {$currentLang === 'en'
-            ? 'Contact us to discuss your restoration project. We offer free consultations and will help you bring your wooden products back to life.'
-            : 'Свяжитесь с нами, чтобы обсудить ваш проект реставрации. Мы предлагаем бесплатные консультации и поможем вернуть жизнь вашим деревянным изделиям.'}
+                  ? 'Contact us to discuss your restoration project. We offer free consultations and will help you bring your wooden products back to life.'
+                  : 'Свяжитесь с нами, чтобы обсудить ваш проект реставрации. Мы предлагаем бесплатные консультации и поможем вернуть жизнь вашим деревянным изделиям.'}
         </p>
       </div>
       <div class="contact-form-container">
-        <ContactForm 
-          formTitle={$currentLang === 'en' ? 'Contact Us' : 'Связаться с нами'} 
-          buttonText={$currentLang === 'en' ? 'Submit' : 'Отправить'} 
+        <ContactForm
+                formTitle={$currentLang === 'en' ? 'Contact Us' : 'Связаться с нами'}
+                buttonText={$currentLang === 'en' ? 'Submit' : 'Отправить'}
         />
       </div>
     </div>
@@ -380,10 +386,10 @@
   <div class="modal-overlay" on:click={closeContactModal}>
     <div class="modal-content" on:click|stopPropagation>
       <ContactForm
-        formTitle={$currentLang === 'en' ? 'Request a Project' : 'Заказать проект'}
-        buttonText={$currentLang === 'en' ? 'Submit' : 'Отправить'}
-        isModal={true}
-        on:close={closeContactModal}
+              formTitle={$currentLang === 'en' ? 'Request a Project' : 'Заказать проект'}
+              buttonText={$currentLang === 'en' ? 'Submit' : 'Отправить'}
+              isModal={true}
+              on:close={closeContactModal}
       />
     </div>
   </div>
@@ -723,7 +729,7 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
+    cursor: pointer; /* Only for desktop hover effect */
   }
 
   .comparison-image {
@@ -745,12 +751,18 @@
     z-index: 1;
   }
 
-  .hover-comparison:hover .before-image,
+  .hover-comparison:hover .before-image {
+    opacity: 1;
+  }
+
+  .hover-comparison:hover .after-image {
+    opacity: 0;
+  }
+
   .hover-comparison.toggled .before-image {
     opacity: 1;
   }
 
-  .hover-comparison:hover .after-image,
   .hover-comparison.toggled .after-image {
     opacity: 0;
   }
@@ -858,15 +870,6 @@
     /* Show mobile toggle buttons */
     .mobile-toggle-buttons {
       display: flex;
-    }
-
-    /* Disable hover effects on mobile devices */
-    .hover-comparison:hover .before-image {
-      opacity: 0;
-    }
-
-    .hover-comparison:hover .after-image {
-      opacity: 1;
     }
 
     /* Update mobile instructions for button toggle */
