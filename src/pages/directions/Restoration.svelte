@@ -125,10 +125,11 @@
     }
   ];
 
-  // For mobile touch support
+  // For mobile toggle support
   let touchToggledItems = {};
 
   function toggleBeforeAfterOnTouch(id) {
+    // Toggle the state for the specific item
     touchToggledItems[id] = !touchToggledItems[id];
   }
 
@@ -270,9 +271,9 @@
     </div>
 
     <h2>{$currentLang === 'en' ? 'Before and After Comparison' : 'Сравнение До и После'}</h2>
-    <p class="comparison-intro" data-mobile-text={$currentLang === 'en' 
-      ? 'On mobile, tap the image to toggle between before and after states.'
-      : 'На мобильных устройствах нажмите на изображение, чтобы переключаться между состояниями до и после.'}>
+    <p class="comparison-intro" 
+      data-mobile-text-en="On mobile, use the BEFORE and AFTER buttons to switch between views."
+      data-mobile-text-ru="На мобильных устройствах используйте кнопки ДО и ПОСЛЕ для переключения между видами.">
       {$currentLang === 'en' 
         ? 'Hover over the "After" image to see the "Before" state of our restoration projects.'
         : 'Наведите курсор на изображение "После", чтобы увидеть состояние "До" наших реставрационных проектов.'}
@@ -284,7 +285,6 @@
           <div 
             class="hover-comparison" 
             class:toggled={touchToggledItems[pair.id]} 
-            on:click={() => toggleBeforeAfterOnTouch(pair.id)}
           >
             <div class="comparison-image after-image">
               <img src={pair.afterImage.src} alt={pair.afterImage.alt} />
@@ -293,6 +293,24 @@
             <div class="comparison-image before-image">
               <img src={pair.beforeImage.src} alt={pair.beforeImage.alt} />
               <div class="image-label before-label">{$currentLang === 'en' ? 'BEFORE' : 'ДО'}</div>
+            </div>
+
+            <!-- Mobile toggle buttons -->
+            <div class="mobile-toggle-buttons">
+              <button 
+                class="toggle-btn before-btn" 
+                class:active={touchToggledItems[pair.id]} 
+                on:click={() => toggleBeforeAfterOnTouch(pair.id)}
+              >
+                {$currentLang === 'en' ? 'BEFORE' : 'ДО'}
+              </button>
+              <button 
+                class="toggle-btn after-btn" 
+                class:active={!touchToggledItems[pair.id]} 
+                on:click={() => touchToggledItems[pair.id] = false}
+              >
+                {$currentLang === 'en' ? 'AFTER' : 'ПОСЛЕ'}
+              </button>
             </div>
           </div>
         </div>
@@ -765,6 +783,46 @@
     right: 20px;
   }
 
+  /* Mobile toggle buttons - hidden by default on desktop */
+  .mobile-toggle-buttons {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .toggle-btn {
+    padding: 8px 15px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50%;
+    border-radius: 0;
+  }
+
+  .before-btn {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  .after-btn {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  .toggle-btn.active {
+    background-color: var(--primary-color);
+  }
+
   @media (max-width: 768px) {
     .direction-features {
       grid-template-columns: 1fr;
@@ -797,7 +855,12 @@
       height: 350px;
     }
 
-    /* Disable hover effects on touch devices */
+    /* Show mobile toggle buttons */
+    .mobile-toggle-buttons {
+      display: flex;
+    }
+
+    /* Disable hover effects on mobile devices */
     .hover-comparison:hover .before-image {
       opacity: 0;
     }
@@ -806,14 +869,18 @@
       opacity: 1;
     }
 
-    /* Add touch-friendly instructions for mobile */
+    /* Update mobile instructions for button toggle */
     .comparison-intro::after {
-      content: attr(data-mobile-text);
+      content: attr(data-mobile-text-en);
       display: block;
       margin-top: 0.5rem;
       font-size: 0.9rem;
       font-style: italic;
       color: var(--secondary-color);
+    }
+
+    :global(:lang(ru)) .comparison-intro::after {
+      content: attr(data-mobile-text-ru);
     }
   }
 </style>

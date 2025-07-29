@@ -172,8 +172,8 @@
       category: 'interior-furniture'
     },
     {
-      id: 16,
-      src: '/images/indoor/photo_2025-07-21_21-39-14.jpg',
+      id: 15,
+      src: '/images/indoor/photo_2025-07-21_21-39-12.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
@@ -214,18 +214,6 @@
       src: '/images/outdoor furniture/2024-05-13 12-08-37.JPG',
       alt: $currentLang === 'en' ? 'Small Architectural Structures' : 'Малые архитектурные формы',
       category: 'architectural-forms'
-    },
-    {
-      id: 24,
-      src: '/images/outdoor furniture/2024-05-13 12-08-37 (1).JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 26,
-      src: '/images/outdoor furniture/2024-06-21 16-33-30.JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
     },
     {
       id: 28,
@@ -272,12 +260,6 @@
     {
       id: 36,
       src: '/images/outdoor furniture/2024-07-20 13-39-55.JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 38,
-      src: '/images/outdoor furniture/2024-07-20 13-40-20.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
@@ -330,12 +312,6 @@
       category: 'street-furniture'
     },
     {
-      id: 49,
-      src: '/images/small forms/963A9634.jpg',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
       id: 50,
       src: '/images/small forms/963A9642.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
@@ -350,12 +326,6 @@
     {
       id: 52,
       src: '/images/small forms/963A9644.jpg',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 53,
-      src: '/images/small forms/963A9645.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },

@@ -64,7 +64,7 @@
   function startAutoplay() {
     autoplayInterval = setInterval(() => {
       nextSlide();
-    }, 5000); // Change slide every 5 seconds
+    }, 8000); // Change slide every 5 seconds
   }
 
   // Stop autoplay on user interaction
