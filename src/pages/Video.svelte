@@ -174,10 +174,11 @@
   @media (max-width: 768px) {
     .videos-grid {
       grid-template-columns: 1fr;
-      max-width: 400px;
+      max-width: 300px;
     }
 
     .video-container {
+      width: 250px;
       height: 500px;
     }
 

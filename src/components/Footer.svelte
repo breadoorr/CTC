@@ -47,6 +47,7 @@
         <ul>
           <li><a href={getLangRoute('/directions')} use:link>{$t('areasOfActivity')}</a></li>
           <li><a href={getLangRoute('/gallery')} use:link>{$t('gallery')}</a></li>
+          <li><a href={getLangRoute('/video')} use:link>{$t('video')}</a></li>
           <li><a href={getLangRoute('/')} use:link>{$t('blog')}</a></li>
           <li><a href={getLangRoute('/contact')} use:link>{$t('contacts')}</a></li>
         </ul>
