@@ -436,12 +436,6 @@
       category: 'restoration'
     },
     {
-      id: 66,
-      src: '/images/restoration/after/photo_2025-07-01_07-07-40 (3).jpg',
-      alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
-      category: 'restoration'
-    },
-    {
       id: 67,
       src: '/images/restoration/after/2024-05-18 13-49-31.JPG',
       alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
