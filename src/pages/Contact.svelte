@@ -34,12 +34,7 @@
         <div class="contact-details">
           <div class="contact-item">
             <div class="contact-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 10.999H22C22 5.869 18.127 2 12.99 2V4C17.052 4 20 6.943 20 10.999Z" fill="currentColor"/>
-                <path d="M13 8C15.103 8 16 8.897 16 11H18C18 7.803 16.197 6 13 6V8Z" fill="currentColor"/>
-                <path d="M13.422 16.079L16.593 19.25C16.783 19.44 17.108 19.44 17.297 19.25L18.704 17.843C18.894 17.654 18.894 17.327 18.704 17.138L15.532 13.966L13.422 16.079Z" fill="currentColor"/>
-                <path d="M13.5 16L12.5 15C9.7 12.2 7 9.5 7 7C7 4.8 8.8 3 11 3C12.2 3 13.4 3.5 14 4.3C14.6 3.5 15.8 3 17 3C19.2 3 21 4.8 21 7C21 9.5 18.3 12.2 15.5 15L14.5 16H13.5Z" fill="currentColor"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-icon lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
             </div>
             <div class="contact-text">
               <h3>{$t('phone')}</h3>

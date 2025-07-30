@@ -11,136 +11,8 @@
   let selectedImageIndex = 0;
   let modalKeyboardListener = null;
 
-  // Subscribe to location changes to update currentPath
-  loc.subscribe(value => {
-    currentPath = value.location + (value.querystring ? '?' + value.querystring : '');
-  });
-
-  // Helper function to get language-specific route
-  function getLangRoute(route) {
-    return `/${$currentLang}${route}`;
-  }
-
-  function openContactModal() {
-    showContactModal = true;
-  }
-
-  function closeContactModal() {
-    showContactModal = false;
-  }
-
-  function openImageModal(image) {
-    // Find the index of the image in the images array
-    selectedImageIndex = images.findIndex(img => img.id === image.id);
-    selectedImage = image;
-
-    // Add keyboard event listener when modal is opened
-    if (!modalKeyboardListener) {
-      modalKeyboardListener = (e) => handleModalKeydown(e);
-      window.addEventListener('keydown', modalKeyboardListener);
-    }
-  }
-
-  function closeImageModal() {
-    selectedImage = null;
-
-    // Remove keyboard event listener when modal is closed
-    if (modalKeyboardListener) {
-      window.removeEventListener('keydown', modalKeyboardListener);
-      modalKeyboardListener = null;
-    }
-  }
-
-  function nextImage() {
-    if (images.length <= 1) return;
-    selectedImageIndex = (selectedImageIndex + 1) % images.length;
-    selectedImage = images[selectedImageIndex];
-  }
-
-  function prevImage() {
-    if (images.length <= 1) return;
-    selectedImageIndex = (selectedImageIndex - 1 + images.length) % images.length;
-    selectedImage = images[selectedImageIndex];
-  }
-
-  function handleModalKeydown(event) {
-    if (!selectedImage) return;
-
-    if (event.key === 'ArrowRight') {
-      nextImage();
-    } else if (event.key === 'ArrowLeft') {
-      prevImage();
-    } else if (event.key === 'Escape') {
-      closeImageModal();
-    }
-  }
-
-  // For mobile toggle support
-  let touchToggledItems = {};
-
-  function toggleBeforeAfterOnTouch(id, showBefore) {
-    // Toggle the state for the specific item to show either before or after image
-    touchToggledItems = { ...touchToggledItems, [id]: showBefore };
-  }
-
-  onMount(() => {
-    // Initialize touchToggledItems to show 'after' images by default
-    const initialState = {};
-    beforeAfterPairs.forEach(pair => {
-      initialState[pair.id] = false; // false for 'after', true for 'before'
-    });
-    touchToggledItems = initialState;
-
-    return () => {
-      // Clean up event listener on component unmount
-      if (modalKeyboardListener) {
-        window.removeEventListener('keydown', modalKeyboardListener);
-      }
-    };
-  });
-
-  // Gallery images with translations for alt text (only after restoration photos)
-  const images = [
-    {
-      id: 1,
-      src: getAssetPath('/images/restoration/after/photo_2025-07-26_15-42-53.jpg'),
-      alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
-      category: 'restoration-after'
-    },
-    {
-      id: 2,
-      src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40 (2).jpg'),
-      alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
-      category: 'restoration-after'
-    },
-    {
-      id: 3,
-      src: getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40 (3).jpg'),
-      alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
-      category: 'restoration-after'
-    },
-    {
-      id: 4,
-      src: getAssetPath('/images/restoration/after/2024-05-18 13-49-31.JPG'),
-      alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
-      category: 'restoration-after'
-    },
-    {
-      id: 5,
-      src: getAssetPath('/images/restoration/after/2024-05-18 13-50-34.JPG'),
-      alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
-      category: 'restoration-after'
-    },
-    {
-      id: 6,
-      src: getAssetPath('/images/restoration/after/photo_2025-07-21_21-14-46.jpg'),
-      alt: $currentLang === 'en' ? 'Restoration After' : 'Реставрация После',
-      category: 'restoration-after'
-    }
-  ];
-
-  // Create before-after pairs for hover comparison
-  const beforeAfterPairs = [
+  // Define beforeAfterPairs reactively to update with $currentLang
+  $: beforeAfterPairs = [
     {
       id: 1,
       beforeImage: {
@@ -214,6 +86,92 @@
       title: $currentLang === 'en' ? 'Wooden Cabinet Restoration' : 'Реставрация деревянного шкафа'
     }
   ];
+
+  // Define images before any functions that use it
+  $: images = beforeAfterPairs.flatMap(pair => [pair.beforeImage, pair.afterImage]);
+
+  // Initialize currentImages reactively based on beforeAfterPairs
+  $: currentImages = beforeAfterPairs.reduce((acc, pair) => {
+    acc[pair.id] = pair.afterImage;
+    return acc;
+  }, {});
+
+  // Subscribe to location changes to update currentPath
+  loc.subscribe(value => {
+    currentPath = value.location + (value.querystring ? '?' + value.querystring : '');
+  });
+
+  // Helper function to get language-specific route
+  function getLangRoute(route) {
+    return `/${$currentLang}${route}`;
+  }
+
+  function openContactModal() {
+    showContactModal = true;
+  }
+
+  function closeContactModal() {
+    showContactModal = false;
+  }
+
+  function openImageModal(image) {
+    selectedImageIndex = images.findIndex(img => img.id === image.id);
+    selectedImage = image;
+
+    if (!modalKeyboardListener) {
+      modalKeyboardListener = (e) => handleModalKeydown(e);
+      window.addEventListener('keydown', modalKeyboardListener);
+    }
+  }
+
+  function closeImageModal() {
+    selectedImage = null;
+    if (modalKeyboardListener) {
+      window.removeEventListener('keydown', modalKeyboardListener);
+      modalKeyboardListener = null;
+    }
+  }
+
+  function nextImage() {
+    if (images.length <= 1) return;
+    selectedImageIndex = (selectedImageIndex + 1) % images.length;
+    selectedImage = images[selectedImageIndex];
+  }
+
+  function prevImage() {
+    if (images.length <= 1) return;
+    selectedImageIndex = (selectedImageIndex - 1 + images.length) % images.length;
+    selectedImage = images[selectedImageIndex];
+  }
+
+  function handleModalKeydown(event) {
+    if (!selectedImage) return;
+    if (event.key === 'ArrowRight') {
+      nextImage();
+    } else if (event.key === 'ArrowLeft') {
+      prevImage();
+    } else if (event.key === 'Escape') {
+      closeImageModal();
+    }
+  }
+
+  function setImage(pairId, imageType) {
+    const pair = beforeAfterPairs.find(p => p.id === pairId);
+    if (pair) {
+      currentImages = {
+        ...currentImages,
+        [pairId]: imageType === 'before' ? pair.beforeImage : pair.afterImage
+      };
+    }
+  }
+
+  onMount(() => {
+    return () => {
+      if (modalKeyboardListener) {
+        window.removeEventListener('keydown', modalKeyboardListener);
+      }
+    };
+  });
 </script>
 
 <section class="page-header">
@@ -276,7 +234,7 @@
       </div>
     </div>
 
-    <h2>{$currentLang === 'en' ? 'Before and After Comparison' : 'Сравнение До и После'}</h2>
+    <h2 class="comparison-header">{$currentLang === 'en' ? 'Before and After Comparison' : 'Сравнение До и После'}</h2>
     <p class="comparison-intro"
        data-mobile-text-en="On mobile, use the BEFORE and AFTER buttons to switch between views."
        data-mobile-text-ru="На мобильных устройствах используйте кнопки ДО и ПОСЛЕ для переключения между видами.">
@@ -288,32 +246,37 @@
     <div class="before-after-container">
       {#each beforeAfterPairs as pair}
         <div class="before-after-pair">
-          <div
-                  class="hover-comparison"
-                  class:toggled={touchToggledItems[pair.id]}
-          >
-            <div class="comparison-image after-image">
+          <div class="hover-comparison">
+            <!-- Desktop: Show both images with hover effect -->
+            <div class="comparison-image after-image desktop-only">
               <img src={pair.afterImage.src} alt={pair.afterImage.alt} />
               <div class="image-label after-label">{$currentLang === 'en' ? 'AFTER' : 'ПОСЛЕ'}</div>
             </div>
-            <div class="comparison-image before-image">
+            <div class="comparison-image before-image desktop-only">
               <img src={pair.beforeImage.src} alt={pair.beforeImage.alt} />
               <div class="image-label before-label">{$currentLang === 'en' ? 'BEFORE' : 'ДО'}</div>
+            </div>
+            <!-- Mobile: Show single image based on currentImages state -->
+            <div class="comparison-image mobile-only">
+              <img src={currentImages[pair.id].src} alt={currentImages[pair.id].alt} />
+              <div class="image-label {currentImages[pair.id] === pair.beforeImage ? 'before-label' : 'after-label'}">
+                {$currentLang === 'en' ? (currentImages[pair.id] === pair.beforeImage ? 'BEFORE' : 'AFTER') : (currentImages[pair.id] === pair.beforeImage ? 'ДО' : 'ПОСЛЕ')}
+              </div>
             </div>
 
             <!-- Mobile toggle buttons -->
             <div class="mobile-toggle-buttons">
               <button
                       class="toggle-btn before-btn"
-                      class:active={touchToggledItems[pair.id]}
-                      on:click={() => toggleBeforeAfterOnTouch(pair.id, true)}
+                      class:active={currentImages[pair.id] === pair.beforeImage}
+                      on:click={() => setImage(pair.id, 'before')}
               >
                 {$currentLang === 'en' ? 'BEFORE' : 'ДО'}
               </button>
               <button
                       class="toggle-btn after-btn"
-                      class:active={!touchToggledItems[pair.id]}
-                      on:click={() => toggleBeforeAfterOnTouch(pair.id, false)}
+                      class:active={currentImages[pair.id] === pair.afterImage}
+                      on:click={() => setImage(pair.id, 'after')}
               >
                 {$currentLang === 'en' ? 'AFTER' : 'ПОСЛЕ'}
               </button>
@@ -352,7 +315,6 @@
     <div class="modal-content image-modal" on:click|stopPropagation>
       <button class="close-btn" on:click={closeImageModal}>&times;</button>
 
-      <!-- Navigation arrows -->
       {#if images.length > 1}
         <button class="modal-arrow modal-prev" on:click={prevImage} aria-label="Previous image">
           <svg viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
@@ -466,74 +428,143 @@
     line-height: 1.6;
   }
 
-  .gallery-grid {
+  .before-after-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
   }
 
-  .gallery-item {
+  .before-after-pair {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .before-after-pair h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+
+  .hover-comparison {
     position: relative;
-    height: 280px;
-    overflow: hidden;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
   }
 
-  .gallery-item-overlay {
+  .comparison-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+
+  .comparison-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .comparison-header {
+    text-align: center;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .before-image {
     opacity: 0;
+    z-index: 2;
     transition: opacity 0.3s ease;
   }
 
-  .gallery-item:hover img {
-    transform: scale(1.05);
-  }
-
-  .gallery-item:hover .gallery-item-overlay {
+  .after-image {
     opacity: 1;
-    cursor: zoom-in;
+    z-index: 1;
+    transition: opacity 0.3s ease;
   }
 
-  .view-icon {
+  .hover-comparison:hover .before-image {
+    opacity: 1;
+  }
+
+  .hover-comparison:hover .after-image {
+    opacity: 0;
+  }
+
+  .image-label {
+    position: absolute;
+    bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
     color: var(--white);
-    font-size: 2.5rem;
-    font-weight: bold;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 3;
   }
 
-  .gallery-item:hover .view-icon {
-    background-color: rgba(255, 255, 255, 0.3);
+  .before-label {
+    /*left: 20px;*/
+    display: none;
+  }
+
+  .after-label {
+    /*right: 20px;*/
+    display: none;
+  }
+
+  .mobile-toggle-buttons {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .toggle-btn {
+    padding: 8px 15px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50%;
+    border-radius: 0;
+  }
+
+  .before-btn {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  .after-btn {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  .toggle-btn.active {
+    background-color: var(--primary-color);
   }
 
   .contact-section {
@@ -573,7 +604,6 @@
     opacity: 0.9;
   }
 
-  /* Modal */
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -629,7 +659,6 @@
     font-weight: 500;
   }
 
-  /* Modal navigation arrows */
   .modal-arrow {
     position: absolute;
     top: 50%;
@@ -693,146 +722,12 @@
     align-items: center;
   }
 
-  /* Before-After Comparison Styles */
   .comparison-intro {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 2rem;
     font-size: 1.1rem;
     line-height: 1.6;
-  }
-
-  .before-after-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 3rem;
-    margin-bottom: 4rem;
-  }
-
-  .before-after-pair {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .before-after-pair h3 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-  }
-
-  .hover-comparison {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    cursor: pointer; /* Only for desktop hover effect */
-  }
-
-  .comparison-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.3s ease;
-  }
-
-  .before-image {
-    opacity: 0;
-    z-index: 2;
-  }
-
-  .after-image {
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .hover-comparison:hover .before-image {
-    opacity: 1;
-  }
-
-  .hover-comparison:hover .after-image {
-    opacity: 0;
-  }
-
-  .hover-comparison.toggled .before-image {
-    opacity: 1;
-  }
-
-  .hover-comparison.toggled .after-image {
-    opacity: 0;
-  }
-
-  .comparison-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .image-label {
-    position: absolute;
-    bottom: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: var(--white);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    z-index: 3;
-  }
-
-  .before-label {
-    left: 20px;
-  }
-
-  .after-label {
-    right: 20px;
-  }
-
-  /* Mobile toggle buttons - hidden by default on desktop */
-  .mobile-toggle-buttons {
-    display: none;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    width: 80%;
-    max-width: 300px;
-  }
-
-  .toggle-btn {
-    padding: 8px 15px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: var(--white);
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 50%;
-    border-radius: 0;
-  }
-
-  .before-btn {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-
-  .after-btn {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-
-  .toggle-btn.active {
-    background-color: var(--primary-color);
   }
 
   @media (max-width: 768px) {
@@ -867,12 +762,18 @@
       height: 350px;
     }
 
-    /* Show mobile toggle buttons */
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-only {
+      display: block;
+    }
+
     .mobile-toggle-buttons {
       display: flex;
     }
 
-    /* Update mobile instructions for button toggle */
     .comparison-intro::after {
       content: attr(data-mobile-text-en);
       display: block;

@@ -88,7 +88,7 @@ export function initLanguage() {
 const translations = {
   en: {
     // Header
-    areasOfActivity: 'Areas of Activity',
+    areasOfActivity: 'Services',
     outdoorFurniture: 'Outdoor Furniture',
     interiorFurniture: 'Interior Furniture',
     architecturalStructures: 'Small Architectural Structures',
@@ -182,7 +182,7 @@ const translations = {
   },
   ru: {
     // Header
-    areasOfActivity: 'Направления деятельности',
+    areasOfActivity: 'Сервисы',
     outdoorFurniture: 'Уличная мебель',
     interiorFurniture: 'Мебель в интерьере',
     architecturalStructures: 'Малые архитектурные формы',
@@ -192,7 +192,7 @@ const translations = {
     gallery: 'Галерея',
     video: 'Видео',
     blog: 'Блог',
-    aboutUs: 'О компании',
+    aboutUs: 'О Нас',
     companyTeam: 'Команда компании',
     contacts: 'Контакты',
 
