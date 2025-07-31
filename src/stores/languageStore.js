@@ -182,7 +182,7 @@ const translations = {
   },
   ru: {
     // Header
-    areasOfActivity: 'Сервисы',
+    areasOfActivity: 'Услуги',
     outdoorFurniture: 'Уличная мебель',
     interiorFurniture: 'Мебель в интерьере',
     architecturalStructures: 'Малые архитектурные формы',
