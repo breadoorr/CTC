@@ -1,5 +1,5 @@
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import adapter from '@sveltejs/adapter-auto';
+import vercelAdapter from '@sveltejs/adapter-vercel';
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
@@ -9,7 +9,10 @@ export default {
   
   kit: {
     // adapter determines where your app will be deployed
-    adapter: adapter(),
+    adapter: vercelAdapter({
+      // Specify Node.js 20.x as the runtime
+      runtime: 'nodejs20.x'
+    }),
     
     // Enable SvelteKit's file-based routing
     files: {
