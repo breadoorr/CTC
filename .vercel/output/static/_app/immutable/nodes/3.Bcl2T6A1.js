@@ -1,0 +1,1 @@
+import"../chunks/DsnmJJEf.js";import{i}from"../chunks/BPX4JM44.js";import{p,o as e,i as m,b as n,d as s}from"../chunks/C3DYXwYK.js";import{g}from"../chunks/C06w6Dk_.js";import{g as f}from"../chunks/1LOAfqDd.js";var d=m("<div>Redirecting...</div>");function _(o,r){p(r,!1),e(()=>{const t=f();g(`/${t}`)}),i();var a=d();n(o,a),s()}export{_ as component};
