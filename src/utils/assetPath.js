@@ -12,9 +12,6 @@ export function getAssetPath(path) {
     return path;
   }
 
-  // For paths that start with '/', ensure they work with the base path
-  const base = import.meta.env.BASE_URL || '/';
-
   // Remove the leading slash from the path if the base path already has a trailing slash
   const cleanPath = path.startsWith('/') ? path.substring(1) : path;
 
@@ -22,6 +19,6 @@ export function getAssetPath(path) {
   // This is the key fix - we need to ensure no language code is in the asset path
   const pathWithoutLang = cleanPath.replace(/^(en|ru)\//, '');
 
-  // Combine the base path with the clean path (without language prefix)
-  return `${base}${pathWithoutLang}`;
+  // Use absolute URL with the host domain 'ctc.cy'
+  return `https://ctc.cy/${pathWithoutLang}`;
 }
