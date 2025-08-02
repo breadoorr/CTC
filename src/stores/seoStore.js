@@ -1,6 +1,6 @@
 import { derived } from 'svelte/store';
 import { currentLang, languages } from './languageStore';
-import { loc } from 'svelte-spa-router';
+import { page } from '$app/stores';
 import { getAssetPath } from '../utils/assetPath';
 
 // Helper function to process image paths in the SEO data
@@ -245,22 +245,28 @@ function getPageFromPath(path) {
 
 // Create a derived store that combines the current language and location
 export const seo = derived(
-  [currentLang, loc],
-  ([$currentLang, $locValue]) => {
-    const $location = $locValue.location + ($locValue.querystring ? '?' + $locValue.querystring : '');
-    const page = getPageFromPath($location);
+  [currentLang, page],
+  ([$currentLang, $page]) => {
+    const $location = $page.url.pathname;
+    const pageName = getPageFromPath($location);
 
     // Get the SEO data for the current language and page
     // Default to home page if the page doesn't exist in the SEO data
-    const pageSeo = seoData[$currentLang]?.[page] || seoData[$currentLang]?.home;
+    const pageSeo = seoData[$currentLang]?.[pageName] || seoData[$currentLang]?.home;
+
+    // Extract the path without the language prefix for canonical and alternate URLs
+    const pathWithoutLang = $location === `/${$currentLang}` ? '' : 
+                           $location.startsWith(`/${$currentLang}/`) ? 
+                           $location.substring($currentLang.length + 1) : 
+                           $location;
 
     return {
       ...pageSeo,
       lang: $currentLang,
-      canonicalUrl: `https://ctc.cy/${$currentLang}${$location === `/${$currentLang}` ? '' : $location.substring($currentLang.length + 1)}`,
+      canonicalUrl: `https://ctc.cy/${$currentLang}${pathWithoutLang}`,
       alternateUrls: languages.map(lang => ({
         lang,
-        url: `https://ctc.cy/${lang}${$location === `/${$currentLang}` ? '' : $location.substring($currentLang.length + 1)}`
+        url: `https://ctc.cy/${lang}${pathWithoutLang}`
       }))
     };
   }

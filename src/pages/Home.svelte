@@ -2,15 +2,10 @@
   import { createEventDispatcher, onMount } from 'svelte';
   import ContactForm from '../components/ContactForm.svelte';
   import { currentLang, t } from '../stores/languageStore';
-  import { link, loc } from 'svelte-spa-router';
   import { getAssetPath } from '../utils/assetPath';
+  import { getLangRoute } from '../utils/routeUtils';
 
   const dispatch = createEventDispatcher();
-
-  // Helper function to get language-specific route
-  function getLangRoute(route) {
-    return `/${$currentLang}${route}`;
-  }
 
   let showContactModal = false;
 
@@ -155,7 +150,7 @@
       <h2 class="services-title">{$t('servicesTitle')}</h2>
     </div>
     <div class="services-grid">
-      <a href={getLangRoute('/directions/street-furniture')} use:link class="service-card">
+      <a href={getLangRoute('/directions/street-furniture')} class="service-card">
         <div class="service-icon">
           <img src={getAssetPath('/images/outdoor furniture/chair.jpg')} alt={$t('outdoorFurnitureService')} />
           <div class="service-content">
@@ -165,7 +160,7 @@
         </div>
       </a>
 
-      <a href={getLangRoute('/directions/interior-furniture')} use:link class="service-card">
+      <a href={getLangRoute('/directions/interior-furniture')} class="service-card">
         <div class="service-icon">
           <img src={getAssetPath('/images/indoor/shelf.jpg')} alt={$t('interiorFurnitureService')} />
           <div class="service-content">
@@ -175,7 +170,7 @@
         </div>
       </a>
 
-      <a href={getLangRoute('/directions/architectural-forms')} use:link class="service-card">
+      <a href={getLangRoute('/directions/architectural-forms')} class="service-card">
         <div class="service-icon">
           <img src={getAssetPath('/images/small%20forms/беседка.jpg')} alt={$t('architecturalStructuresService')} />
           <div class="service-content">
@@ -185,7 +180,7 @@
         </div>
       </a>
 
-      <a href={getLangRoute('/directions/for-kids')} use:link class="service-card">
+      <a href={getLangRoute('/directions/for-kids')} class="service-card">
         <div class="service-icon">
           <img src={getAssetPath('/images/for%20kids/2024-06-21 16-19-32.JPG')} alt={$t('forKidsService')} />
           <div class="service-content">
@@ -195,7 +190,7 @@
         </div>
       </a>
 
-      <a href={getLangRoute('/directions/private-houses')} use:link class="service-card">
+      <a href={getLangRoute('/directions/private-houses')} class="service-card">
         <div class="service-icon">
           <img src={getAssetPath('/images/house/house(1).jpg')} alt={$t('privateHomesService')} />
           <div class="service-content">
@@ -205,7 +200,7 @@
         </div>
       </a>
 
-      <a href={getLangRoute('/directions/restoration')} use:link class="service-card">
+      <a href={getLangRoute('/directions/restoration')} class="service-card">
         <div class="service-icon">
           <img src={getAssetPath('/images/restoration/after/photo_2025-07-01_07-07-40.jpg')} alt={$t('restorationService')} />
           <div class="service-content">

@@ -1,25 +1,33 @@
 <script>
-  import { link, loc } from 'svelte-spa-router';
-  import { currentLang, setLanguage, t, getLanguageFromPath } from '../stores/languageStore';
+  import { page } from '$app/stores';
+  import { goto, afterNavigate } from '$app/navigation';
+  import { currentLang, switchLanguage, t, getLanguageFromPath } from '../stores/languageStore';
   import { onMount, onDestroy } from 'svelte';
   import { getAssetPath } from '../utils/assetPath';
+  import { getLangRoute } from '../utils/routeUtils';
 
   let isMobileMenuOpen = false;
   let isDropdownOpen = {};
   let currentPath = '';
 
-  // Subscribe to location changes to update currentPath
-  loc.subscribe(value => {
-    currentPath = value.location + (value.querystring ? '?' + value.querystring : '');
+  // Update currentPath when the page changes
+  $: currentPath = $page.url.pathname;
+
+  // Close mobile menu when route changes
+  afterNavigate(() => {
+    handleRouteChange();
   });
 
-  // Helper function to get language-specific route
-  function getLangRoute(route) {
-    return `/${$currentLang}${route}`;
+  // Helper function to safely access document
+  function isBrowser() {
+    return typeof document !== 'undefined';
   }
 
-  function switchLanguage(lang) {
-    setLanguage(lang);
+  // Helper function to toggle body scroll
+  function toggleBodyScroll(lock) {
+    if (isBrowser()) {
+      document.body.style.overflow = lock ? 'hidden' : '';
+    }
   }
 
   function toggleMobileMenu() {
@@ -30,11 +38,7 @@
     }
 
     // Toggle body scroll
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    toggleBodyScroll(isMobileMenuOpen);
   }
 
   function toggleDropdown(key) {
@@ -43,6 +47,8 @@
 
   // Close mobile menu when clicking outside
   function handleClickOutside(event) {
+    if (!isBrowser()) return;
+    
     const mobileMenu = document.querySelector('.mobile-menu');
     const burgerButton = document.querySelector('.burger-button');
 
@@ -65,26 +71,18 @@
     }
   }
 
-  // Subscribe to location changes
-  let unsubscribe;
-
+  // Set up event listeners only in browser environment
   onMount(() => {
-    document.addEventListener('click', handleClickOutside);
-    document.addEventListener('keydown', handleKeydown);
-
-    // Subscribe to location changes
-    unsubscribe = loc.subscribe(() => {
-      handleRouteChange();
-    });
+    if (isBrowser()) {
+      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('keydown', handleKeydown);
+    }
   });
 
   onDestroy(() => {
-    document.removeEventListener('click', handleClickOutside);
-    document.removeEventListener('keydown', handleKeydown);
-
-    // Unsubscribe from location changes
-    if (unsubscribe) {
-      unsubscribe();
+    if (isBrowser()) {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('keydown', handleKeydown);
     }
   });
 </script>
@@ -94,28 +92,28 @@
     <div class="header-padding"></div>
     <nav>
       <div class="logo">
-        <a href={getLangRoute('/')} use:link>
+        <a href={getLangRoute('/')}>
           <img src={getAssetPath('/logo/Лого СТС без рамки 4.jpg')} alt="CTC" class="logo-img">
         </a>
       </div>
       <div class="nav-center">
         <ul class="nav-links">
           <li class="dropdown">
-            <a href={getLangRoute('/directions')} use:link>{$t('areasOfActivity')}</a>
+            <a href={getLangRoute('/directions')}>{$t('areasOfActivity')}</a>
             <div class="dropdown-content">
-              <a href={getLangRoute('/directions/street-furniture')} use:link>{$t('outdoorFurniture')}</a>
-              <a href={getLangRoute('/directions/interior-furniture')} use:link>{$t('interiorFurniture')}</a>
-              <a href={getLangRoute('/directions/architectural-forms')} use:link>{$t('architecturalStructures')}</a>
-              <a href={getLangRoute('/directions/private-houses')} use:link>{$t('privateHomes')}</a>
-              <a href={getLangRoute('/directions/restoration')} use:link>{$t('restoration')}</a>
-              <a href={getLangRoute('/directions/for-kids')} use:link>{$t('forKidsService')}</a>
+              <a href={getLangRoute('/directions/street-furniture')}>{$t('outdoorFurniture')}</a>
+              <a href={getLangRoute('/directions/interior-furniture')}>{$t('interiorFurniture')}</a>
+              <a href={getLangRoute('/directions/architectural-forms')}>{$t('architecturalStructures')}</a>
+              <a href={getLangRoute('/directions/private-houses')}>{$t('privateHomes')}</a>
+              <a href={getLangRoute('/directions/restoration')}>{$t('restoration')}</a>
+              <a href={getLangRoute('/directions/for-kids')}>{$t('forKidsService')}</a>
             </div>
           </li>
-          <li><a href={getLangRoute('/gallery')} use:link>{$t('gallery')}</a></li>
-          <li><a href={getLangRoute('/video')} use:link>{$t('video')}</a></li>
-          <li><a href={getLangRoute('/')} use:link>{$t('blog')}</a></li>
+          <li><a href={getLangRoute('/gallery')}>{$t('gallery')}</a></li>
+          <li><a href={getLangRoute('/video')}>{$t('video')}</a></li>
+<!--          <li><a href={getLangRoute('/blog')}>{$t('blog')}</a></li>-->
           <li class="dropdown">
-            <a href={getLangRoute('/contact')} use:link>{$t('contacts')}</a>
+            <a href={getLangRoute('/contact')}>{$t('contacts')}</a>
           </li>
         </ul>
       </div>
@@ -189,7 +187,7 @@
       <ul class="mobile-nav-links">
         <li>
           <div class="mobile-nav-item">
-            <a href={getLangRoute('/directions')} use:link on:click={toggleMobileMenu}>{$t('areasOfActivity')}</a>
+            <a href={getLangRoute('/directions')} on:click={toggleMobileMenu}>{$t('areasOfActivity')}</a>
             <button 
               class="dropdown-toggle" 
               on:click={() => toggleDropdown('directions')}
@@ -201,21 +199,22 @@
           </div>
           {#if isDropdownOpen['directions']}
             <ul class="mobile-dropdown-content">
-              <li><a href={getLangRoute('/directions/street-furniture')} use:link on:click={toggleMobileMenu}>{$t('outdoorFurniture')}</a></li>
-              <li><a href={getLangRoute('/directions/interior-furniture')} use:link on:click={toggleMobileMenu}>{$t('interiorFurniture')}</a></li>
-              <li><a href={getLangRoute('/directions/architectural-forms')} use:link on:click={toggleMobileMenu}>{$t('architecturalStructures')}</a></li>
-              <li><a href={getLangRoute('/directions/private-houses')} use:link on:click={toggleMobileMenu}>{$t('privateHomes')}</a></li>
-              <li><a href={getLangRoute('/directions/restoration')} use:link on:click={toggleMobileMenu}>{$t('restoration')}</a></li>
-              <li><a href={getLangRoute('/directions/for-kids')} use:link on:click={toggleMobileMenu}>{$t('forKidsService')}</a></li>
+              <li><a href={getLangRoute('/directions/street-furniture')} on:click={toggleMobileMenu}>{$t('outdoorFurniture')}</a></li>
+              <li><a href={getLangRoute('/directions/interior-furniture')} on:click={toggleMobileMenu}>{$t('interiorFurniture')}</a></li>
+              <li><a href={getLangRoute('/directions/architectural-forms')} on:click={toggleMobileMenu}>{$t('architecturalStructures')}</a></li>
+              <li><a href={getLangRoute('/directions/private-houses')} on:click={toggleMobileMenu}>{$t('privateHomes')}</a></li>
+              <li><a href={getLangRoute('/directions/restoration')} on:click={toggleMobileMenu}>{$t('restoration')}</a></li>
+              <li><a href={getLangRoute('/directions/for-kids')} on:click={toggleMobileMenu}>{$t('forKidsService')}</a></li>
             </ul>
           {/if}
         </li>
-        <li><a href={getLangRoute('/gallery')} use:link on:click={toggleMobileMenu}>{$t('gallery')}</a></li>
-        <li><a href={getLangRoute('/video')} use:link on:click={toggleMobileMenu}>{$t('video')}</a></li>
-        <li><a href={getLangRoute('/')} use:link on:click={toggleMobileMenu}>{$t('blog')}</a></li>
+        <li><a href={getLangRoute('/gallery')} on:click={toggleMobileMenu}>{$t('gallery')}</a></li>
+        <li><a href={getLangRoute('/video')} on:click={toggleMobileMenu}>{$t('video')}</a></li>
+<!--        <li><a href={getLangRoute('/blog')} on:click={toggleMobileMenu}>{$t('blog')}</a></li>-->
         <li>
           <div class="mobile-nav-item">
-            <a href={getLangRoute('/contact')} use:link on:click={toggleMobileMenu}>{$t('aboutUs')}</a>
+            <a href={getLangRoute('/contact')} on:click={toggleMobileMenu}>{$t('contacts')}</a>
+          </div>
         </li>
       </ul>
     </div>

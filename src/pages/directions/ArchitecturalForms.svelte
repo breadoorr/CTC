@@ -1,9 +1,10 @@
 <script>
-  import { link, loc } from 'svelte-spa-router';
+  import { page } from '$app/stores';
   import { currentLang, t } from '../../stores/languageStore';
   import ContactForm from '../../components/ContactForm.svelte';
   import { onMount } from 'svelte';
   import { getAssetPath } from '../../utils/assetPath';
+  import { getLangRoute } from '../../utils/routeUtils';
 
   let currentPath = '';
   let showContactModal = false;
@@ -11,15 +12,8 @@
   let selectedImageIndex = 0;
   let modalKeyboardListener = null;
 
-  // Subscribe to location changes to update currentPath
-  loc.subscribe(value => {
-    currentPath = value.location + (value.querystring ? '?' + value.querystring : '');
-  });
-
-  // Helper function to get language-specific route
-  function getLangRoute(route) {
-    return `/${$currentLang}${route}`;
-  }
+  // Update currentPath when the page changes
+  $: currentPath = $page.url.pathname;
 
   function openContactModal() {
     showContactModal = true;
@@ -35,7 +29,7 @@
     selectedImage = image;
 
     // Add keyboard event listener when modal is opened
-    if (!modalKeyboardListener) {
+    if (typeof window !== 'undefined' && !modalKeyboardListener) {
       modalKeyboardListener = (e) => handleModalKeydown(e);
       window.addEventListener('keydown', modalKeyboardListener);
     }
@@ -45,7 +39,7 @@
     selectedImage = null;
 
     // Remove keyboard event listener when modal is closed
-    if (modalKeyboardListener) {
+    if (typeof window !== 'undefined' && modalKeyboardListener) {
       window.removeEventListener('keydown', modalKeyboardListener);
       modalKeyboardListener = null;
     }
@@ -78,7 +72,7 @@
   onMount(() => {
     return () => {
       // Clean up event listener on component unmount
-      if (modalKeyboardListener) {
+      if (typeof window !== 'undefined' && modalKeyboardListener) {
         window.removeEventListener('keydown', modalKeyboardListener);
       }
     };

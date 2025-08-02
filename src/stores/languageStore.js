@@ -1,5 +1,5 @@
 import { writable, derived, get } from 'svelte/store';
-import { push, loc } from 'svelte-spa-router';
+import { goto } from '$app/navigation';
 
 // Available languages
 export const languages = ['en', 'ru'];
@@ -33,8 +33,23 @@ export function getLanguageFromPath(path) {
   return null;
 }
 
-// Function to set the language and navigate to the corresponding route
+// Function to set the language without navigation
 export function setLanguage(lang) {
+  if (languages.includes(lang)) {
+    // Update the language store
+    currentLang.set(lang);
+
+    // Save to localStorage for persistence
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', lang);
+    }
+  } else {
+    console.error(`Language ${lang} is not supported`);
+  }
+}
+
+// Function to switch language and navigate to the corresponding route
+export function switchLanguage(lang) {
   if (languages.includes(lang)) {
     // Update the language store
     currentLang.set(lang);
@@ -45,17 +60,16 @@ export function setLanguage(lang) {
     }
 
     // Get the current path and navigate to the corresponding path in the new language
-    const locValue = get(loc);
-    const currentPath = locValue.location + (locValue.querystring ? '?' + locValue.querystring : '');
+    const currentPath = window.location.pathname;
     const currentLangFromPath = getLanguageFromPath(currentPath);
 
     if (currentLangFromPath) {
       // If the current path already has a language prefix, replace it
       const newPath = currentPath.replace(`/${currentLangFromPath}`, `/${lang}`);
-      push(newPath);
+      goto(newPath);
     } else {
       // If the current path doesn't have a language prefix, add it
-      push(`/${lang}`);
+      goto(`/${lang}`);
     }
   } else {
     console.error(`Language ${lang} is not supported`);
@@ -66,8 +80,7 @@ export function setLanguage(lang) {
 export function initLanguage() {
   if (typeof window !== 'undefined') {
     // First check if the URL has a language prefix
-    const locValue = get(loc);
-    const currentPath = locValue.location + (locValue.querystring ? '?' + locValue.querystring : '');
+    const currentPath = window.location.pathname;
     const langFromPath = getLanguageFromPath(currentPath);
 
     if (langFromPath) {

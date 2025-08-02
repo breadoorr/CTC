@@ -13,16 +13,13 @@
   let ogUrl;
   let canonicalLink;
   let alternateLinks = [];
-  
-  // Subscribe to the SEO store
-  const unsubscribe = seo.subscribe(seoData => {
-    if (typeof document !== 'undefined') {
-      updateHead(seoData);
-    }
-  });
+  let currentSeoData;
+  let unsubscribe;
   
   // Update the document head with the SEO data
   function updateHead(seoData) {
+    if (typeof document === 'undefined') return;
+    
     // Update the title
     if (!titleElement) {
       titleElement = document.querySelector('title');
@@ -139,8 +136,27 @@
     });
   }
   
+  // Subscribe to the SEO store and save the data for use in onMount
+  unsubscribe = seo.subscribe(data => {
+    currentSeoData = data;
+  });
+  
+  onMount(() => {
+    // Only update the head in the browser environment
+    if (currentSeoData) {
+      updateHead(currentSeoData);
+    }
+    
+    // Set up subscription to update head when SEO data changes
+    unsubscribe = seo.subscribe(data => {
+      updateHead(data);
+    });
+  });
+  
   onDestroy(() => {
-    unsubscribe();
+    if (unsubscribe) {
+      unsubscribe();
+    }
   });
 </script>
 

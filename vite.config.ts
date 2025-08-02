@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { defineConfig } from 'vite';
+import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig(({ mode }) => {
   // You can add your own env logic or use process.env
@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
   const base = process.env.BASE_PATH || '/';
 
   return {
-    plugins: [svelte()],
+    plugins: [sveltekit()],
     base,
     server: {
       host: '0.0.0.0',
@@ -20,8 +20,11 @@ export default defineConfig(({ mode }) => {
         'ctc.cy'
       ],
       hmr: {
-        clientPort: 443,
-        protocol: 'wss'
+        // Only use secure WebSockets in production
+        ...(process.env.NODE_ENV === 'production' ? {
+          clientPort: 443,
+          protocol: 'wss'
+        } : {})
       }
     }
   }

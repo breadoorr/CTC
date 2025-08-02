@@ -1,20 +1,14 @@
 <script>
-  import { link, loc } from 'svelte-spa-router';
+  import { page } from '$app/stores';
   import { currentLang, t } from '../stores/languageStore';
   import ContactForm from '../components/ContactForm.svelte';
   import { getAssetPath } from '../utils/assetPath';
+  import { getLangRoute } from '../utils/routeUtils';
 
   let currentPath = '';
 
-  // Subscribe to location changes to update currentPath
-  loc.subscribe(value => {
-    currentPath = value.location + (value.querystring ? '?' + value.querystring : '');
-  });
-
-  // Helper function to get language-specific route
-  function getLangRoute(route) {
-    return `/${$currentLang}${route}`;
-  }
+  // Update currentPath when the page changes
+  $: currentPath = $page.url.pathname;
 
   // Blog posts data
   const blogPosts = [
@@ -145,7 +139,7 @@
             <p>{post.excerpt}</p>
             <div class="blog-footer">
               <span class="blog-author">Автор: {post.author}</span>
-              <a href={getLangRoute(post.url)} use:link class="btn-text">Читать далее</a>
+              <a href={getLangRoute(post.url)} class="btn-text">Читать далее</a>
             </div>
           </div>
         </div>

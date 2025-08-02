@@ -1,20 +1,14 @@
 <script>
-  import { link, loc } from 'svelte-spa-router';
+  import { page } from '$app/stores';
   import { currentLang, t } from '../stores/languageStore';
   import ContactForm from '../components/ContactForm.svelte';
   import { getAssetPath } from '../utils/assetPath';
+  import { getLangRoute } from '../utils/routeUtils';
 
   let currentPath = '';
 
-  // Subscribe to location changes to update currentPath
-  loc.subscribe(value => {
-    currentPath = value.location + (value.querystring ? '?' + value.querystring : '');
-  });
-
-  // Helper function to get language-specific route
-  function getLangRoute(route) {
-    return `/${$currentLang}${route}`;
-  }
+  // Update currentPath when the page changes
+  $: currentPath = $page.url.pathname;
 </script>
 
 <section class="page-header">
@@ -45,7 +39,7 @@
         <div class="direction-content">
           <h3>{$t('outdoorFurniture')}</h3>
           <p>{$t('outdoorFurnitureDesc')}</p>
-          <a href={getLangRoute('/directions/street-furniture')} use:link class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
+          <a href={getLangRoute('/directions/street-furniture')} class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
         </div>
       </div>
 
@@ -55,7 +49,7 @@
         <div class="direction-content">
           <h3>{$t('interiorFurniture')}</h3>
           <p>{$t('interiorFurnitureDesc')}</p>
-          <a href={getLangRoute('/directions/interior-furniture')} use:link class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
+          <a href={getLangRoute('/directions/interior-furniture')} class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
         </div>
       </div>
 
@@ -65,7 +59,7 @@
         <div class="direction-content">
           <h3>{$t('architecturalStructures')}</h3>
           <p>{$t('architecturalStructuresDesc')}</p>
-          <a href={getLangRoute('/directions/architectural-forms')} use:link class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
+          <a href={getLangRoute('/directions/architectural-forms')} class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
         </div>
       </div>
 
@@ -75,7 +69,7 @@
 <!--        <div class="direction-content">-->
 <!--          <h3>{$t('interiorDesign')}</h3>-->
 <!--          <p>{$t('interiorDesignDesc')}</p>-->
-<!--          <a href={getLangRoute('/directions/interior-design')} use:link class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>-->
+<!--          <a href={getLangRoute('/directions/interior-design')} class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>-->
 <!--        </div>-->
 <!--      </div>-->
 
@@ -85,7 +79,7 @@
         <div class="direction-content">
           <h3>{$t('privateHomes')}</h3>
           <p>{$t('privateHomesDesc')}</p>
-          <a href={getLangRoute('/directions/private-houses')} use:link class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
+          <a href={getLangRoute('/directions/private-houses')} class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
         </div>
       </div>
 
@@ -95,7 +89,7 @@
         <div class="direction-content">
           <h3>{$t('restoration')}</h3>
           <p>{$t('restorationDesc')}</p>
-          <a href={getLangRoute('/directions/restoration')} use:link class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
+          <a href={getLangRoute('/directions/restoration')} class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
         </div>
       </div>
 
@@ -105,7 +99,7 @@
         <div class="direction-content">
           <h3>{$t('forKidsService')}</h3>
           <p>{$t('forKidsDesc')}</p>
-          <a href={getLangRoute('/directions/for-kids')} use:link class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
+          <a href={getLangRoute('/directions/for-kids')} class="btn-text">{$currentLang === 'en' ? 'Learn More' : 'Подробнее'}</a>
         </div>
       </div>
     </div>
