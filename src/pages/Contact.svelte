@@ -32,7 +32,7 @@
             </div>
             <div class="contact-text">
               <h3>{$t('phone')}</h3>
-              <p><a href="tel:+35799037765">+357 99 037 765</a></p>
+              <p><a href="https://wa.me/+35799037765">+357 99 037 765</a></p>
             </div>
           </div>
 
