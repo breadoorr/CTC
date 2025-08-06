@@ -1,6 +1,7 @@
 <script>
   import { currentLang, t } from '../stores/languageStore';
   import { createEventDispatcher } from 'svelte';
+  import { google } from 'googleapis';
 
   export let formTitle = $t('leaveRequest');
   export let buttonText = $t('submit');
@@ -13,36 +14,56 @@
   let isSuccess = false;
   let errorMessage = "";
 
-  function handleSubmit() {
+  const spreadsheetId = '1FVOOcvNzozmqxQxOIHK2Q-C4A3pkLs366ufrfymaM54';
+
+  async function handleSubmit() {
     isSubmitting = true;
     errorMessage = "";
+    try {
+      // Use environment variables instead of credentials.json
+      const auth = new google.auth.GoogleAuth({
+        credentials: {
+          client_email: process.env.GOOGLE_CLIENT_EMAIL,
+          private_key: process.env.GOOGLE_PRIVATE_KEY,
+        },
+        scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      });
 
-    // Validate form
-    if (!name.trim()) {
-      errorMessage = $t('pleaseEnterName');
-      isSubmitting = false;
-      return;
-    }
+      const client = await auth.getClient();
+      const googleSheets = google.sheets({ version: 'v4', auth: client });
 
-    if (!phone.trim()) {
-      errorMessage = $t('pleaseEnterPhone');
-      isSubmitting = false;
-      return;
-    }
+      // Validate form
+      if (!name.trim()) {
+        errorMessage = $t('pleaseEnterName');
+        isSubmitting = false;
+        return;
+      }
 
-    // Simulate form submission
-    setTimeout(() => {
-      isSubmitting = false;
+      if (!phone.trim()) {
+        errorMessage = $t('pleaseEnterPhone');
+        isSubmitting = false;
+        return;
+      }
+
+      await googleSheets.spreadsheets.values.append({
+        spreadsheetId,
+        range: 'Sheet1!A:C',
+        valueInputOption: 'RAW',
+        resource: {
+          values: [[name, phone, message]],
+        },
+      });
+
       isSuccess = true;
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        name = "";
-        phone = "";
-        message = "";
-        isSuccess = false;
-      }, 3000);
-    }, 1000);
+      name = "";
+      phone = "";
+      message = "";
+    } catch (error) {
+      errorMessage = $t('submissionError') || 'An error occurred while submitting the form.';
+      console.error('Error submitting to Google Sheets:', error);
+    } finally {
+      isSubmitting = false;
+    }
   }
 
   function closeModal() {
