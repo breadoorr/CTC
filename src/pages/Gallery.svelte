@@ -195,6 +195,36 @@
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
+    {
+      id: 19.1,
+      src: '/images/indoor/Кровать.jpg',
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
+      category: 'interior-furniture'
+    },
+    {
+      id: 19.2,
+      src: '/images/indoor/Раковина.jpg',
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
+      category: 'interior-furniture'
+    },
+    {
+      id: 19.3,
+      src: '/images/indoor/Ресторан.jpg',
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
+      category: 'interior-furniture'
+    },
+    {
+      id: 19.4,
+      src: '/images/indoor/СтолБиблиотека.JPG',
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
+      category: 'interior-furniture'
+    },
+    {
+      id: 19.5,
+      src: '/images/indoor/СтолБиблиотека1.JPG',
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
+      category: 'interior-furniture'
+    },
 
     // Outdoor Furniture Category
     {
@@ -218,12 +248,6 @@
     {
       id: 28,
       src: '/images/outdoor furniture/2024-06-21 16-36-31.JPG',
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 30,
-      src: '/images/outdoor furniture/2024-06-21 16-37-11.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
       category: 'street-furniture'
     },
@@ -261,12 +285,6 @@
       id: 36,
       src: '/images/outdoor furniture/2024-07-20 13-39-55.JPG',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
-      category: 'street-furniture'
-    },
-    {
-      id: 40,
-      src: '/images/outdoor furniture/chair.jpg',
-      alt: $currentLang === 'en' ? 'Outdoor Chair' : 'Уличный стул',
       category: 'street-furniture'
     },
     {

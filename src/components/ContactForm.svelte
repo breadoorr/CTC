@@ -1,66 +1,38 @@
+<!-- src/routes/+page.svelte -->
 <script>
   import { currentLang, t } from '../stores/languageStore';
   import { createEventDispatcher } from 'svelte';
-  import { google } from 'googleapis';
 
   export let formTitle = $t('leaveRequest');
   export let buttonText = $t('submit');
   export let isModal = false;
 
-  let name = "";
-  let phone = "";
-  let message = "";
   let isSubmitting = false;
-  let isSuccess = false;
-  let errorMessage = "";
+  let errorMessage = '';
+  let success = false;
 
-  const spreadsheetId = '1FVOOcvNzozmqxQxOIHK2Q-C4A3pkLs366ufrfymaM54';
-
-  async function handleSubmit() {
+  async function handleSubmit(event) {
+    event.preventDefault();
     isSubmitting = true;
-    errorMessage = "";
+    errorMessage = '';
+    success = false;
+
     try {
-      // Use environment variables instead of credentials.json
-      const auth = new google.auth.GoogleAuth({
-        credentials: {
-          client_email: process.env.GOOGLE_CLIENT_EMAIL,
-          private_key: process.env.GOOGLE_PRIVATE_KEY,
-        },
-        scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      const formData = new FormData(event.target);
+      const response = await fetch('/api/sheets', {
+        method: 'POST',
+        body: formData,
       });
 
-      const client = await auth.getClient();
-      const googleSheets = google.sheets({ version: 'v4', auth: client });
+      const result = await response.json();
 
-      // Validate form
-      if (!name.trim()) {
-        errorMessage = $t('pleaseEnterName');
-        isSubmitting = false;
-        return;
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to submit to Google Sheets');
       }
 
-      if (!phone.trim()) {
-        errorMessage = $t('pleaseEnterPhone');
-        isSubmitting = false;
-        return;
-      }
-
-      await googleSheets.spreadsheets.values.append({
-        spreadsheetId,
-        range: 'Sheet1!A:C',
-        valueInputOption: 'RAW',
-        resource: {
-          values: [[name, phone, message]],
-        },
-      });
-
-      isSuccess = true;
-      name = "";
-      phone = "";
-      message = "";
+      success = true;
     } catch (error) {
-      errorMessage = $t('submissionError') || 'An error occurred while submitting the form.';
-      console.error('Error submitting to Google Sheets:', error);
+      errorMessage = error.message;
     } finally {
       isSubmitting = false;
     }
@@ -68,7 +40,6 @@
 
   function closeModal() {
     if (isModal) {
-      // Dispatch event to parent component to close modal
       dispatch('close');
     }
   }
@@ -83,12 +54,12 @@
 
   <h3>{formTitle}</h3>
 
-  {#if isSuccess}
+  {#if success}
     <div class="success-message">
       <p>{$t('thankYou')}</p>
     </div>
   {:else}
-    <form on:submit|preventDefault={handleSubmit}>
+    <form on:submit={handleSubmit}>
       {#if errorMessage}
         <div class="error-message">
           <p>{errorMessage}</p>
@@ -96,34 +67,34 @@
       {/if}
 
       <div class="form-group">
-        <input 
-          type="text" 
-          id="name" 
-          class="form-control" 
-          placeholder={$t('yourName')} 
-          bind:value={name}
-          required
+        <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder={$t('yourName')}
+                required
         />
       </div>
 
       <div class="form-group">
-        <input 
-          type="tel" 
-          id="phone" 
-          class="form-control" 
-          placeholder={$t('yourPhone')} 
-          bind:value={phone}
-          required
+        <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-control"
+                placeholder={$t('yourPhone')}
+                required
         />
       </div>
 
       <div class="form-group">
-        <textarea 
-          id="message" 
-          class="form-control" 
-          placeholder={$t('message')} 
-          bind:value={message}
-          rows="4"
+        <textarea
+                id="message"
+                name="message"
+                class="form-control"
+                placeholder={$t('message')}
+                rows="4"
         ></textarea>
       </div>
 
