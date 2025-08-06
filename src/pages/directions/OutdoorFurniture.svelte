@@ -114,11 +114,6 @@
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
     },
     {
-      id: 11,
-      src: getAssetPath('/images/outdoor furniture/2024-06-21 16-37-11.JPG'),
-      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
-    },
-    {
       id: 12,
       src: getAssetPath('/images/outdoor furniture/2024-06-21 16-37-11 (1).JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
@@ -152,11 +147,6 @@
       id: 18,
       src: getAssetPath('/images/outdoor furniture/2024-07-20 13-40-13.JPG'),
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
-    },
-    {
-      id: 21,
-      src: getAssetPath('/images/outdoor furniture/chair.jpg'),
-      alt: $currentLang === 'en' ? 'Outdoor Chair' : 'Уличный стул'
     },
     {
       id: 22,
