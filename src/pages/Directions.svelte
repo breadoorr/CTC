@@ -207,5 +207,8 @@
     .contact-container {
       grid-template-columns: 1fr;
     }
+    .contact-info {
+      padding: 20px;
+    }
   }
 </style>
