@@ -82,37 +82,37 @@
   const images = [
     {
       id: 1,
-      src: getAssetPath('/images/house/33bd0883de8e84637a5259827d798d53cedc01f1.jpeg'),
+      src: getAssetPath('/images/house/33bd0883de8e84637a5259827d798d53cedc01f1.webp'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 2,
-      src: getAssetPath('/images/house/a4f1748b8d0ba362d3ddb23f529e98b6.jpg'),
+      src: getAssetPath('/images/house/a4f1748b8d0ba362d3ddb23f529e98b6.webp'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 3,
-      src: getAssetPath('/images/house/house(1).jpg'),
+      src: getAssetPath('/images/house/house(1).webp'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 4,
-      src: getAssetPath('/images/house/house(2).jpg'),
+      src: getAssetPath('/images/house/house(2).webp'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 5,
-      src: getAssetPath('/images/house/house(3).jpg'),
+      src: getAssetPath('/images/house/house(3).webp'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     },
     {
       id: 6,
-      src: getAssetPath('/images/house/house(4).jpg'),
+      src: getAssetPath('/images/house/house(4).webp'),
       alt: $currentLang === 'en' ? 'Private Residential Home' : 'Частный жилой дом',
       category: 'private-houses'
     }

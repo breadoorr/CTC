@@ -87,19 +87,19 @@
     // For Kids Category
     {
       id: 1,
-      src: '/images/for kids/2024-06-21 16-19-32.JPG',
+      src: '/images/for kids/2024-06-21 16-19-32.webp',
       alt: $currentLang === 'en' ? 'For Kids' : 'Для детей',
       category: 'for-kids'
     },
     {
       id: 2,
-      src: '/images/for kids/2024-06-21 16-20-24.JPG',
+      src: '/images/for kids/2024-06-21 16-20-24.webp',
       alt: $currentLang === 'en' ? 'For Kids' : 'Для детей',
       category: 'for-kids'
     },
     {
       id: 3,
-      src: '/images/for kids/2024-06-21 16-20-28.JPG',
+      src: '/images/for kids/2024-06-21 16-20-28.webp',
       alt: $currentLang === 'en' ? 'For Kids' : 'Для детей',
       category: 'for-kids'
     },
@@ -375,37 +375,37 @@
     // House Category
     {
       id: 58,
-      src: '/images/house/33bd0883de8e84637a5259827d798d53cedc01f1.jpeg',
+      src: '/images/house/33bd0883de8e84637a5259827d798d53cedc01f1.webp',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
       id: 59,
-      src: '/images/house/a4f1748b8d0ba362d3ddb23f529e98b6.jpg',
+      src: '/images/house/a4f1748b8d0ba362d3ddb23f529e98b6.webp',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
       id: 60,
-      src: '/images/house/house(1).jpg',
+      src: '/images/house/house(1).webp',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
       id: 61,
-      src: '/images/house/house(2).jpg',
+      src: '/images/house/house(2).webp',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
       id: 62,
-      src: '/images/house/house(3).jpg',
+      src: '/images/house/house(3).webp',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },
     {
       id: 63,
-      src: '/images/house/house(4).jpg',
+      src: '/images/house/house(4).webp',
       alt: $currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома',
       category: 'private-houses'
     },

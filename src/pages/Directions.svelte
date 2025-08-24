@@ -75,7 +75,7 @@
 
       <!-- Direction 5 -->
       <div class="direction-card">
-        <div class="direction-image" style="background-image: url('{getAssetPath('/images/house/house(1).jpg')}');"></div>
+        <div class="direction-image" style="background-image: url('{getAssetPath('/images/house/house(1).webp')}');"></div>
         <div class="direction-content">
           <h3>{$t('privateHomes')}</h3>
           <p>{$t('privateHomesDesc')}</p>
@@ -95,7 +95,7 @@
 
       <!-- Direction 7: For Kids -->
       <div class="direction-card">
-        <div class="direction-image" style="background-image: url('{getAssetPath('/images/for kids/2024-06-21 16-19-32.JPG')}');"></div>
+        <div class="direction-image" style="background-image: url('{getAssetPath('/images/for kids/2024-06-21 16-19-32.webp')}');"></div>
         <div class="direction-content">
           <h3>{$t('forKidsService')}</h3>
           <p>{$t('forKidsDesc')}</p>
