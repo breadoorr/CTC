@@ -182,7 +182,7 @@
 
       <a href={getLangRoute('/directions/for-kids')} class="service-card">
         <div class="service-icon">
-          <img src={getAssetPath('/images/for%20kids/2024-06-21 16-19-32.JPG')} alt={$t('forKidsService')} />
+          <img src={getAssetPath('/images/for%20kids/2024-06-21 16-19-32.webp')} alt={$t('forKidsService')} />
           <div class="service-content">
             <h3 class="service-title">{$t('forKidsService')}</h3>
             <p class="service-description">{$t('forKidsDesc')}</p>
@@ -192,7 +192,7 @@
 
       <a href={getLangRoute('/directions/private-houses')} class="service-card">
         <div class="service-icon">
-          <img src={getAssetPath('/images/house/house(1).jpg')} alt={$t('privateHomesService')} />
+          <img src={getAssetPath('/images/house/house(1).webp')} alt={$t('privateHomesService')} />
           <div class="service-content">
             <h3 class="service-title">{$t('privateHomesService')}</h3>
             <p class="service-description">{$t('privateHomesDesc')}</p>

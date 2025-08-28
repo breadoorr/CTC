@@ -100,7 +100,7 @@
     },
     {
       id: 4,
-      src: getAssetPath('/images/indoor/photo_2024-01-26_17-56-21.webp'),
+      src: getAssetPath('/images/indoor/photo_2024-01-26_17-56-21.jpg'),
       alt: $currentLang === 'en' ? 'Furniture for Kids' : 'Мебель для детей'
     },
     {
