@@ -4,7 +4,6 @@
   import ContactForm from '../../components/ContactForm.svelte';
   import { onMount } from 'svelte';
   import { getAssetPath } from '../../utils/assetPath';
-  import { getLangRoute } from '../../utils/routeUtils';
 
   let currentPath = '';
   let showContactModal = false;
@@ -85,7 +84,32 @@
         alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
       },
       title: $currentLang === 'en' ? 'Wooden Cabinet Restoration' : 'Реставрация деревянного шкафа'
+    },
+    {
+      id: 7,
+      beforeImage: {
+        src: getAssetPath('/images/restoration/before/1before.jpg'),
+        alt: $currentLang === 'en' ? 'Before Restoration' : 'До реставрации'
+      },
+      afterImage: {
+        src: getAssetPath('/images/restoration/after/1after.jpg'),
+        alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
+      },
+      title: $currentLang === 'en' ? 'Wooden Cabinet Restoration' : 'Реставрация деревянного шкафа'
+    },
+    {
+      id: 8,
+      beforeImage: {
+        src: getAssetPath('/images/restoration/before/2before.jpg'),
+        alt: $currentLang === 'en' ? 'Before Restoration' : 'До реставрации'
+      },
+      afterImage: {
+        src: getAssetPath('/images/restoration/after/2after.jpg'),
+        alt: $currentLang === 'en' ? 'After Restoration' : 'После реставрации'
+      },
+      title: $currentLang === 'en' ? 'Wooden Cabinet Restoration' : 'Реставрация деревянного шкафа'
     }
+
   ];
 
   // Define images before any functions that use it

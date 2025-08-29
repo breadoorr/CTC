@@ -318,6 +318,19 @@
       category: 'street-furniture'
     },
     {
+      id: 45.1,
+      src: getAssetPath('/images/outdoor furniture/Outdoor1.jpg'),
+      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
+    },{
+      id: 45.2,
+      src: getAssetPath('/images/outdoor furniture/Outdoor2.jpg'),
+      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
+    },{
+      id: 45.3,
+      src: getAssetPath('/images/outdoor furniture/Outdoor3.jpg'),
+      alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель'
+    },
+    {
       id: 46,
       src: '/images/small forms/963A9631.jpg',
       alt: $currentLang === 'en' ? 'Outdoor Furniture' : 'Уличная мебель',
