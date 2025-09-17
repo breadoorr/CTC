@@ -215,8 +215,8 @@
     <div class="direction-intro">
       <p>
         {$currentLang === 'en' 
-          ? 'We create high-quality outdoor furniture that combines durability, comfort, and style. Our products are designed to withstand various weather conditions while maintaining their aesthetic appeal. From loungers and chairs to children\'s playhouses, we offer a wide range of outdoor furniture solutions.'
-          : 'Мы создаем высококачественную уличную мебель, сочетающую в себе прочность, комфорт и стиль. Наши изделия разработаны для противостояния различным погодным условиям, сохраняя при этом свою эстетическую привлекательность. От шезлонгов и кресел до детских домиков, мы предлагаем широкий спектр решений для уличной мебели.'}
+          ? 'We create high-quality outdoor furniture that combines durability, comfort, and style. Our products are created for Mediterranean climate while maintaining their aesthetic appeal. From loungers and chairs to children\'s playhouses, we offer a wide range of outdoor furniture solutions.'
+          : 'Мы создаем высококачественную уличную мебель, сочетающую в себе прочность, комфорт и стиль. Наши изделия разработаны для средиземноморского климата, сохраняя при этом свою эстетическую привлекательность. От шезлонгов и кресел до детских домиков, мы предлагаем широкий спектр решений для уличной мебели.'}
       </p>
       <p>
         {$currentLang === 'en'
