@@ -121,7 +121,7 @@
 
 <section class="page-header">
   <div class="container">
-    <h1>{$currentLang === 'en' ? 'Private Residential Homes' : 'Частные жилые дома'}</h1>
+    <h1>{$currentLang === 'en' ? 'Interior and Exterior Decor' : 'Внутренний и внешний декор'}</h1>
   </div>
 </section>
 
@@ -130,8 +130,8 @@
     <div class="direction-intro">
       <p>
         {$currentLang === 'en' 
-          ? 'We design and build custom private residential homes that reflect your personal style and meet your specific needs. From concept to completion, our team of experts will work with you to create a home that is both beautiful and functional.'
-          : 'Мы проектируем и строим индивидуальные частные жилые дома, которые отражают ваш личный стиль и соответствуют вашим конкретным потребностям. От концепции до завершения, наша команда экспертов будет работать с вами, чтобы создать дом, который будет как красивым, так и функциональным.'}
+          ? 'We design and build custom interior and exterior decor that reflect your personal style and meet your specific needs. From concept to completion, our team of experts will work with you to create a decor that is both beautiful and functional.'
+          : 'Мы проектируем внутренний и внешний декор, который отражает ваш личный стиль и соответствует вашим конкретным потребностям. От концепции до завершения, наша команда экспертов будет работать с вами, чтобы создать декор, который будет как красивым, так и функциональным.'}
       </p>
     </div>
 
@@ -145,8 +145,8 @@
         <div class="feature-content">
           <h3>{$currentLang === 'en' ? 'Custom Design' : 'Индивидуальный дизайн'}</h3>
           <p>{$currentLang === 'en' 
-            ? 'We create homes tailored to your specific needs, preferences, and lifestyle.'
-            : 'Мы создаем дома, адаптированные к вашим конкретным потребностям, предпочтениям и образу жизни.'}</p>
+            ? 'We create decor tailored to your specific needs, preferences, and lifestyle.'
+            : 'Мы создаем декор, адаптированный к вашим конкретным потребностям, предпочтениям и образу жизни.'}</p>
         </div>
       </div>
 
@@ -159,8 +159,8 @@
         <div class="feature-content">
           <h3>{$currentLang === 'en' ? 'Quality Materials' : 'Качественные материалы'}</h3>
           <p>{$currentLang === 'en'
-            ? 'We use only the finest materials for our residential home projects.'
-            : 'Мы используем только лучшие материалы для наших проектов жилых домов.'}</p>
+            ? 'We use only the finest materials for our projects.'
+            : 'Мы используем только лучшие материалы для наших проектов.'}</p>
         </div>
       </div>
 
@@ -173,8 +173,8 @@
         <div class="feature-content">
           <h3>{$currentLang === 'en' ? 'Full Service' : 'Полный сервис'}</h3>
           <p>{$currentLang === 'en'
-            ? 'From concept to completion, we handle every aspect of your residential home project.'
-            : 'От концепции до завершения, мы занимаемся всеми аспектами вашего проекта жилого дома.'}</p>
+            ? 'From concept to completion, we handle every aspect of your project.'
+            : 'От концепции до завершения, мы занимаемся всеми аспектами вашего проекта.'}</p>
         </div>
       </div>
     </div>
@@ -197,11 +197,11 @@
   <div class="container">
     <div class="contact-container">
       <div class="contact-info">
-        <h2>{$currentLang === 'en' ? 'Ready to Build Your Dream Home?' : 'Готовы построить дом своей мечты?'}</h2>
+        <h2>{$currentLang === 'en' ? 'Ready to Build Your Dream Project?' : 'Готовы воплотить проект своей мечты?'}</h2>
         <p>
           {$currentLang === 'en'
-            ? 'Contact us to discuss your residential home project. We offer free consultations and will help you bring your vision to life.'
-            : 'Свяжитесь с нами, чтобы обсудить ваш проект жилого дома. Мы предлагаем бесплатные консультации и поможем воплотить вашу идею в жизнь.'}
+            ? 'Contact us to discuss your project. We offer free consultations and will help you bring your vision to life.'
+            : 'Свяжитесь с нами, чтобы обсудить ваш проект. Мы предлагаем бесплатные консультации и поможем воплотить вашу идею в жизнь.'}
         </p>
       </div>
       <div class="contact-form-container">

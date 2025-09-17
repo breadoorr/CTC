@@ -105,7 +105,7 @@ const seoDataRaw = {
       ogImage: '/images/indoor/2024-05-12 23-19-10.JPG'
     },
     'directions-private-houses': {
-      title: 'Private Residential Homes - CTC Construction in Cyprus',
+      title: 'Interior and Exterior Decor - CTC Construction in Cyprus',
       description: 'Custom design and construction of private residential homes according to your individual plan and specifications.',
       keywords: 'private homes, residential construction, custom house design, wooden houses, Cyprus',
       ogTitle: 'Private Residential Homes - CTC Cyprus',
@@ -203,11 +203,11 @@ const seoDataRaw = {
       ogImage: '/images/indoor/2024-05-12 23-19-10.JPG'
     },
     'directions-private-houses': {
-      title: 'Частные жилые дома - CTC Строительство на Кипре',
+      title: 'Внутренний и внешний декор - CTC Строительство на Кипре',
       description: 'Индивидуальное проектирование и строительство частных жилых домов по вашему индивидуальному плану и спецификациям.',
-      keywords: 'частные дома, жилое строительство, индивидуальный дизайн дома, деревянные дома, Кипр',
-      ogTitle: 'Частные жилые дома - CTC Кипр',
-      ogDescription: 'Проектирование и строительство частных жилых домов по вашему индивидуальному плану и спецификациям.',
+      keywords: 'Внутренний и внешний декор, жилое строительство, индивидуальный дизайн дома, деревянные дома, Кипр',
+      ogTitle: 'Внутренний и внешний декор - CTC Кипр',
+      ogDescription: 'Проектирование и строительство Внутренний и внешний декор по вашему индивидуальному плану и спецификациям.',
       ogImage: '/images/house/house(1).jpg'
     },
     'directions-restoration': {
