@@ -59,7 +59,7 @@
         <h3>{$t('contactUs')}</h3>
         <ul>
           <li><a href="https://wa.me/+35799037765">+357 99 037 765</a></li>
-          <li><a href="mailto:info@ctc.cy">info@ctc.cy</a></li>
+          <li><a href="mailto:www.ctc.cy@gmail.com">www.ctc.cy@gmail.com</a></li>
           <li>Limassol, Cyprus</li>
         </ul>
       </div>
