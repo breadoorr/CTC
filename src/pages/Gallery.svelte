@@ -225,6 +225,12 @@
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
+    {
+      id: 19.6,
+      src: './images/indoor/stairs_indoor.jpg',
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
+      category: 'interior-furniture'
+    },
 
     // Outdoor Furniture Category
     {

@@ -194,32 +194,38 @@
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере'
     },
     {
-      id: 19.1,
+      id: 25,
       src: '/images/indoor/Кровать.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 19.2,
+      id: 26,
       src: '/images/indoor/Раковина.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 19.3,
+      id: 27,
       src: '/images/indoor/Ресторан.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 19.4,
+      id: 28,
       src: '/images/indoor/СтолБиблиотека.JPG',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
     {
-      id: 19.5,
+      id: 29,
       src: '/images/indoor/СтолБиблиотека1.JPG',
+      alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
+      category: 'interior-furniture'
+    },
+    {
+      id: 30,
+      src: '/images/indoor/stairs_indoor.jpg',
       alt: $currentLang === 'en' ? 'Interior Furniture' : 'Мебель в интерьере',
       category: 'interior-furniture'
     },
