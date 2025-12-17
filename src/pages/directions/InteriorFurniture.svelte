@@ -84,6 +84,11 @@
   // Images for this direction
   const images = [
       {
+        id: 33,
+        src: getAssetPath('/images/indoor/2025-12-17T15-08-49-398Z_koridor1.jpg'),
+        alt: $currentLang === 'en' ? 'Interior Furniture' : 'Interior Furniture'
+      },
+      {
         id: 32,
         src: getAssetPath('/images/indoor/2025-12-17T15-07-07-127Z_door2.jpg'),
         alt: $currentLang === 'en' ? 'Interior Furniture' : 'Interior Furniture'
