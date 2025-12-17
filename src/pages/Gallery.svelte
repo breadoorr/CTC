@@ -85,6 +85,12 @@
   // Gallery images with translations for alt text
   $: rawGalleryImages = [
       {
+        id: 72,
+        src: '/images/indoor/2025-12-17T15-08-49-398Z_koridor1.jpg',
+        alt: $currentLang === 'en' ? 'Interior Furniture' : 'Interior Furniture',
+        category: 'interior-furniture'
+      },
+      {
         id: 71,
         src: '/images/indoor/2025-12-17T15-07-07-127Z_door2.jpg',
         alt: $currentLang === 'en' ? 'Interior Furniture' : 'Interior Furniture',
