@@ -84,6 +84,12 @@
 
   // Gallery images with translations for alt text
   $: rawGalleryImages = [
+      {
+        id: 70,
+        src: '/images/indoor/2025-12-17T15-02-10-235Z_door1.jpg',
+        alt: $currentLang === 'en' ? 'Interior Furniture' : 'Interior Furniture',
+        category: 'interior-furniture'
+      },
     // For Kids Category
     {
       id: 1,
